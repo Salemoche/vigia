@@ -1,5 +1,12 @@
 import {domReady} from '@roots/sage/client';
 
+// Modules
+import {swiperScript} from './modules/swiper';
+import { interactions } from './modules/interactions';
+import { automatic } from './modules/automatic';
+
+window.vigia = {};
+
 /**
  * app.main
  */
@@ -10,6 +17,9 @@ const main = async (err) => {
   }
 
   // application code
+  swiperScript();
+  interactions();
+  automatic();
 };
 
 /**

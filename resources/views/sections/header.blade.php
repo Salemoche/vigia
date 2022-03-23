@@ -1,11 +1,16 @@
-<header class="banner">
-  <a class="brand" href="{{ home_url('/') }}">
+<header class="banner vigia-header">
+  {{-- <a class="brand" href="{{ home_url('/') }}">
     {!! $siteName !!}
-  </a>
+  </a> --}}
 
   @if (has_nav_menu('primary_navigation'))
-    <nav class="nav-primary" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
-      {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'echo' => false]) !!}
+    <nav class="nav-primary vigia-navigation border-t-3 lg:border-b-3 w-full border-black" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+      {!! wp_nav_menu([
+        'theme_location'  => 'primary_navigation',
+        'menu_class'      => 'nav flex flex-row lg:flex-column flex-wrap lg:flex-nowrap max-w-screen-3xl mx-auto',
+        'echo'            => false,
+        'add_li_class'    => 'vigia-menu-item'
+      ]) !!}
     </nav>
   @endif
 </header>

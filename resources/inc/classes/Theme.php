@@ -32,6 +32,8 @@ class Theme {
         add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
         add_action('block_categories_all', [$this, 'add_block_categories']);
         add_action('acf/init', [$this, 'register_blocks']);
+
+        add_filter('nav_menu_css_class', [$this, 'add_additional_class_on_li'], 1, 3);
     }
 
     public function setup_theme() {
@@ -90,7 +92,7 @@ class Theme {
 
 
         /**================
-         * Custom Menu
+         * Custom Admin Menu
         ================*/
 
         add_filter('custom_menu_order', '__return_true');
@@ -130,11 +132,6 @@ class Theme {
                     'name'          => __('Zeitschriften', 'vigia'),
                     'singular_name' => __('Zeitschrift', 'vigia'),
                 ),
-                'public'      => true,
-                'publicly_queryable' => true,
-                'exclude_from_search' => false,
-                'query_var' => true,
-                'show_ui' => true,
                 'has_archive' => true,
                 'menu_position' => -3,
                 'menu_icon' => 'dashicons-book',
@@ -209,6 +206,13 @@ class Theme {
     public function mime_types($mimes) {
         $mimes['svg'] = 'image/svg+xml';
         return $mimes;
+    }
+
+    public function add_additional_class_on_li($classes, $item, $args) {
+        if(isset($args->add_li_class)) {
+            $classes[] = $args->add_li_class;
+        }
+        return $classes;
     }
 
 

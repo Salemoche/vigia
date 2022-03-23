@@ -1,0 +1,136 @@
+@layer base {
+
+    @font-face {
+        font-family: 'SuisseIntl';
+        src:    url('../fonts/SuisseIntl-Book-WebM.woff2') format('woff2'),
+                url('../fonts/SuisseIntl-Book-WebM.woff') format('woff');
+    }
+
+    * {
+        font-family: 'SuisseIntl', 'Helvetica', noserif;
+    }
+
+    html * {
+      @apply text-base;
+    }
+
+    body,
+    #app,
+    main,
+    .vigia-content {
+      min-height: 100vh;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-lg text-center;
+    }
+
+    hr {
+      @apply my-5 lg:my-10 !max-w-none;
+    }
+}
+
+@layer components {
+
+
+  /**========================
+  *	Vigia
+  *========================*/
+
+  .vigia-content {
+    @apply mx-auto;
+  }
+  .vigia-content-page {
+    @apply container mx-auto p-5 lg:p-10 mt-7 mb-5;
+  }
+
+  .vigia-inner {
+    > * {
+      @apply mx-auto sm:max-w-sm lg:max-w-5xl;
+    }
+  }
+
+  .vigia-header {
+
+    @apply fixed lg:sticky lg:top-0 w-full z-10 lg:bg-white transition-all pointer-events-none;
+
+    &.active {
+
+      @apply bg-white;
+
+      .vigia-menu-item:not(.current-menu-item) {
+        @apply opacity-100 pointer-events-auto;
+      }
+
+      .current-menu-item a {
+        @apply after:rotate-180;
+      }
+    }
+  }
+
+  .vigia-menu-item {
+    @apply
+      text-lg
+      text-center
+      flex-1
+      basis-full
+      transition-all
+      border-b-3
+      border-black
+      order-2
+      opacity-0
+      pointer-events-none
+
+      lg:basis-1/4
+      lg:w-auto
+      lg:border-t-3
+      lg:border-r-3
+      lg:border-b-0
+      lg:first:border-l-3
+      lg:transition-colors
+      lg:opacity-100
+      lg:pointer-events-auto
+      lg:order-1
+
+      hover:bg-black
+      hover:text-white ;
+
+    a {
+      @apply w-full h-full p-2.5 inline-block uppercase;
+    }
+
+    &.current-menu-item {
+      @apply  bg-white lg:text-white pointer-events-auto order-1 opacity-100 lg:bg-black hover:text-black lg:hover:text-white lg:hover:bg-black;
+
+      a {
+        @apply after:inline-block after:transition-transform after:content-['↓'] after:ml-5 lg:after:hidden pointer-events-none lg:after:ml-0;
+      }
+    }
+  }
+
+  .vigia-button,
+  input[type=button],
+  button,
+  a[download] {
+    @apply
+      !border-3
+      !border-black
+      !px-5
+      !py-2.5
+      !text-black
+      !rounded-none
+      !bg-white
+      !text-lg
+      !inline-block
+      uppercase
+      transition-colors
+
+      hover:bg-black
+      hover:text-white;
+  }
+}

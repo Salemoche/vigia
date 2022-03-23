@@ -5,7 +5,7 @@
 @include('sections.header')
 
   <main id="main" class="main">
-    <div class="vigia-content container">
+    <div class="vigia-content vigia-content-{{ get_post_type() }}">
       @yield('content')
     </div>
   </main>
