@@ -1,27 +1,40 @@
 
 export const interactions = () => {
+
+  const addEventListeners = () => {
+    setTimeout(() => {
+      menu();
+    }, 1000);
+  }
+
+  addEventListeners();
+
   /**========================
   *	Menu
   *========================*/
-  const currentMenuItem = document.querySelector('.current-menu-item');
-  const currentMenuItemHeight = currentMenuItem.scrollHeight;
-  const header = document.querySelector('.vigia-header');
-  const headerHeight = header.scrollHeight;
-  let menuOpen = false;
 
-  currentMenuItem.addEventListener('click', () => {
+  function menu () {
 
-    if ( window.vigia.deviceSize == 'large' ) return
+    const currentMenuItem = document.querySelector('.current-menu-item');
+    if (!currentMenuItem) return
+    const currentMenuItemHeight = currentMenuItem.scrollHeight;
+    const header = document.querySelector('.vigia-header');
+    const headerHeight = header.scrollHeight;
+    let menuOpen = false;
 
-    header.classList.toggle('active');
+    currentMenuItem.addEventListener('click', () => {
 
-    if ( menuOpen ) {
-      header.styles.maxHeight = currentMenuItemHeight;
-    } else {
-      header.styles.maxHeight = headerHeight;
-    }
+      if ( window.vigia.deviceSize == 'large' ) return
 
-    menuOpen = !menuOpen;
-  })
+      header.classList.toggle('active');
 
+      if ( menuOpen ) {
+        header.styles.maxHeight = currentMenuItemHeight;
+      } else {
+        header.styles.maxHeight = headerHeight;
+      }
+
+      menuOpen = !menuOpen;
+    })
+  }
 }

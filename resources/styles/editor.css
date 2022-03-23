@@ -1,1 +1,19 @@
-@import './app'
+/* @import './app'; */
+
+.wp-block-spacer {
+  @apply bg-gray-light;
+}
+
+#adminmenumain *,
+.interface-interface-skeleton__header * {
+  font-size: inherit;
+}
+
+#adminmenumain button,
+.interface-interface-skeleton__header button {
+  @apply !text-sm;
+}
+
+html :where(.editor-styles-wrapper) p {
+  @apply m-0 mb-5 lg:mb-10;
+}

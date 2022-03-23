@@ -28,7 +28,46 @@ class Theme {
     protected function setup_hooks() {
         // actions and filters
 
-        add_action( 'init', [ $this, 'init' ] );
+        // add_action( 'init', [ $this, 'init' ] );
+        add_action( 'init', function () {
+
+
+
+            register_post_type('zeitschrift',
+                array(
+                    'labels'      => array(
+                        'name'          => __('Zeitschriften', 'vigia'),
+                        'singular_name' => __('Zeitschrift', 'vigia'),
+                    ),
+                    'menu_position' => -3,
+                    'menu_icon' => 'dashicons-book',
+                    'public'             => true,
+                    'publicly_queryable' => true,
+                    'show_ui'            => true,
+                    'show_in_menu'       => true,
+                    'query_var'          => true,
+                    'rewrite'            => array( 'slug' => 'zeitschriften' ),
+                    'capability_type'    => 'post',
+                    'has_archive'        => true,
+                    'hierarchical'       => false,
+                    'supports' => [
+                        'custom-fields',
+                        'page-attributes',
+                        'post-formats',
+                        'title',
+                        'thumbnail',
+                        'editor',
+                        'excerpt',
+                        'categories'
+                    ],
+                    'taxonomies' => [
+                        'category',
+                    ],
+                )
+            );
+
+
+        });
         add_action( 'after_setup_theme', [ $this, 'setup_theme' ] );
         add_action('block_categories_all', [$this, 'add_block_categories']);
         add_action('acf/init', [$this, 'register_blocks']);
@@ -38,11 +77,13 @@ class Theme {
 
     public function setup_theme() {
 
+        $this->add_options_page();
+        $this->change_post_type_labels();
+        $this->custom_block_font_sizes();
+
         /**================
          * Theme Support
          ================*/
-        $this->add_options_page();
-        $this->change_post_type_labels();
         add_theme_support( 'woocommerce' );
 
         // add_theme_support( 'title-tag' );
@@ -127,29 +168,29 @@ class Theme {
 
         function add_post_types() {
             register_post_type('zeitschrift',
-            array(
-                'labels'      => array(
-                    'name'          => __('Zeitschriften', 'vigia'),
-                    'singular_name' => __('Zeitschrift', 'vigia'),
-                ),
-                'has_archive' => true,
-                'menu_position' => -3,
-                'menu_icon' => 'dashicons-book',
-                'supports' => [
-                    'custom-fields',
-                    'page-attributes',
-                    'post-formats',
-                    'title',
-                    'thumbnail',
-                    'editor',
-                    'excerpt',
-                    'categories'
-                ],
-                'taxonomies' => [
-                    'category',
-                ],
-            )
-        );
+                array(
+                    'labels'      => array(
+                        'name'          => __('Zeitschriften', 'vigia'),
+                        'singular_name' => __('Zeitschrift', 'vigia'),
+                    ),
+                    'has_archive' => true,
+                    'menu_position' => -3,
+                    'menu_icon' => 'dashicons-book',
+                    'supports' => [
+                        'custom-fields',
+                        'page-attributes',
+                        'post-formats',
+                        'title',
+                        'thumbnail',
+                        'editor',
+                        'excerpt',
+                        'categories'
+                    ],
+                    'taxonomies' => [
+                        'category',
+                    ],
+                )
+            );
         }
 
         add_post_types();
@@ -158,10 +199,6 @@ class Theme {
     public function change_post_type_labels() {
 
         $get_post_type = get_post_type_object('post');
-        // echo '<hr><pre class="sm-debug">';
-        // print_r($get_post_type);
-        // echo '</pre><hr>';
-        // wp_die();
         $labels = $get_post_type->labels;
         $labels->name = 'Artikel';
         $labels->singular_name = 'Artikel';
@@ -213,6 +250,31 @@ class Theme {
             $classes[] = $args->add_li_class;
         }
         return $classes;
+    }
+
+    public function custom_block_font_sizes() {
+        add_theme_support(
+            'editor-font-sizes',
+            [
+                [
+                    'name' => __( 'Small', 'bachstein' ),
+                    'size' => 18,
+                    'slug' => 'bs-small',
+                ],
+                [
+                    'name' => __( 'Medium', 'bachstein' ),
+                    'size' => 26,
+                    'slug' => 'bs-medium',
+                ],
+                [
+                    'name' => __( 'Large', 'bachstein' ),
+                    'size' => 36,
+                    'slug' => 'bs-large',
+                ],
+            ]
+        );
+
+	    // add_theme_support( 'disable-custom-font-sizes' );
     }
 
 
@@ -272,10 +334,19 @@ class Theme {
                 'render_template'   => VIGIA_BLOCK_TEMPLATE_DIR . '/footnotes.php',
                 'category'          => 'vigia',
                 'mode'              => 'auto',
-                // 'align'             => 'full',
                 'icon'              => 'menu',
                 'keywords'          => array( 'block'),
-                // 'enqueue_assets'    => [ $this, 'enqueue_assets' ],
+            ));
+
+            acf_register_block_type(array(
+                'name'              => 'article_lead',
+                'title'             => __('Einleitung', 'vigia'),
+                'description'       => __('A custom Block for an article lead block'),
+                'render_template'   => VIGIA_BLOCK_TEMPLATE_DIR . '/article-lead.php',
+                'category'          => 'vigia',
+                'mode'              => 'auto',
+                'icon'              => 'menu',
+                'keywords'          => array( 'block'),
             ));
         }
     }

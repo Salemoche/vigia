@@ -7,7 +7,7 @@ export const automatic = () => {
 
   function startScripts () {
     windowSize();
-    console.log(window.vigia.deviceSize)
+    addMenuClasses();
   }
 
   function windowSize () {
@@ -21,6 +21,19 @@ export const automatic = () => {
       default:
         window.vigia.deviceSize = 'mobile';
         break;
+    }
+  }
+
+
+  /**========================
+  *	Add classes to menu
+  *========================*/
+
+  function addMenuClasses () {
+    const isZeitschriften = window.location.href.includes('zeitschriften');
+
+    if ( isZeitschriften ) {
+      document.querySelector('.menu-item-37').classList.add('current-menu-item');
     }
   }
 

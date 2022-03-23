@@ -1,42 +1,56 @@
 @layer base {
 
-    @font-face {
-        font-family: 'SuisseIntl';
-        src:    url('../fonts/SuisseIntl-Book-WebM.woff2') format('woff2'),
-                url('../fonts/SuisseIntl-Book-WebM.woff') format('woff');
-    }
+  @font-face {
+    font-family: 'SuisseIntl';
+    src: url('../fonts/SuisseIntl-Book-WebM.woff2') format('woff2'),
+      url('../fonts/SuisseIntl-Book-WebM.woff') format('woff');
+  }
 
-    * {
-        font-family: 'SuisseIntl', 'Helvetica', noserif;
-    }
+  * {
+    font-family: 'SuisseIntl', 'Helvetica', noserif;
+  }
 
-    html * {
-      @apply text-base;
-    }
+  html * {
+    @apply text-sm lg:text-base;
+  }
 
-    body,
-    #app,
-    main,
-    .vigia-content {
-      min-height: 100vh;
-    }
+  body,
+  #app,
+  main,
+  .vigia-content {
+    min-height: 100vh;
+  }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply text-lg text-center;
-    }
+  #app {
+    @apply border-3 border-black;
+  }
 
-    hr {
-      @apply my-5 lg:my-10 !max-w-none;
-    }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-lg text-center uppercase mb-5;
+  }
+
+  hr {
+    @apply my-5 lg:my-10 !max-w-none;
+  }
+
+  p,
+  span,
+  em,
+  i {
+    @apply text-sm lg:text-base;
+  }
+
+  p {
+    @apply m-0 mb-5;
+  }
 }
 
 @layer components {
-
 
   /**========================
   *	Vigia
@@ -45,6 +59,7 @@
   .vigia-content {
     @apply mx-auto;
   }
+
   .vigia-content-page {
     @apply container mx-auto p-5 lg:p-10 mt-7 mb-5;
   }
@@ -57,7 +72,7 @@
 
   .vigia-header {
 
-    @apply fixed lg:sticky lg:top-0 w-full z-10 lg:bg-white transition-all pointer-events-none;
+    @apply fixed lg:sticky lg:top-0 w-full z-10 lg:bg-white transition-all duration-medium pointer-events-none;
 
     &.active {
 
@@ -75,13 +90,14 @@
 
   .vigia-menu-item {
     @apply
-      text-lg
       text-center
       flex-1
       basis-full
       transition-all
+      duration-medium
       border-b-3
       border-black
+      border-t-0
       order-2
       opacity-0
       pointer-events-none
@@ -91,24 +107,48 @@
       lg:border-t-3
       lg:border-r-3
       lg:border-b-0
-      lg:first:border-l-3
+      lg:last:border-r-0
       lg:transition-colors
+      lg:duration-medium
       lg:opacity-100
       lg:pointer-events-auto
       lg:order-1
 
-      hover:bg-black
-      hover:text-white ;
+    hover:bg-black
+      hover:text-white;
 
     a {
-      @apply w-full h-full p-2.5 inline-block uppercase;
+      @apply
+        w-full
+        h-full
+        p-2.5
+        inline-block
+        uppercase
+        text-lg;
     }
 
     &.current-menu-item {
-      @apply  bg-white lg:text-white pointer-events-auto order-1 opacity-100 lg:bg-black hover:text-black lg:hover:text-white lg:hover:bg-black;
+      @apply
+      bg-white
+      lg:text-white
+        pointer-events-auto
+        order-1
+        opacity-100
+      lg:bg-black
+      hover:text-black
+      lg:hover:text-white
+      lg:hover:bg-black;
 
       a {
-        @apply after:inline-block after:transition-transform after:content-['↓'] after:ml-5 lg:after:hidden pointer-events-none lg:after:ml-0;
+        @apply
+          after:inline-block
+          after:transition-transform
+          after:duration-medium
+          after:content-['↓']
+          after:ml-5
+          lg:after:hidden
+          pointer-events-none
+          lg:after:ml-0;
       }
     }
   }
@@ -119,18 +159,18 @@
   a[download] {
     @apply
       !border-3
-      !border-black
+    !border-black
       !px-5
       !py-2.5
-      !text-black
+    !text-black
       !rounded-none
-      !bg-white
+    !bg-white
       !text-lg
       !inline-block
       uppercase
       transition-colors
-
-      hover:bg-black
-      hover:text-white;
+      duration-medium
+    hover:!bg-black
+    hover:!text-white;
   }
 }

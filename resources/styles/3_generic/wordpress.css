@@ -1,4 +1,4 @@
-@layer components {
+/* @layer components { */
 
   /**========================
   *	Wordpress
@@ -8,4 +8,16 @@
 
   }
 
-}
+  .has-bs-small-font-size {
+    @apply !text-xs lg:!text-sm;
+  }
+
+  .has-bs-medium-font-size {
+    @apply !text-sm lg:!text-base;
+  }
+
+  .has-bs-large-font-size {
+    @apply !text-base lg:!text-lg;
+  }
+
+/* } */
