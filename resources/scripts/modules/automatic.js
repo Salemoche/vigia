@@ -31,9 +31,14 @@ export const automatic = () => {
 
   function addMenuClasses () {
     const isZeitschriften = window.location.href.includes('zeitschriften');
+    const isProduct = window.location.href.includes('produkt');
 
     if ( isZeitschriften ) {
       document.querySelector('.menu-item-37').classList.add('current-menu-item');
+    }
+
+    if ( isProduct ) {
+      document.querySelector('.menu-item-41').classList.add('current-menu-item');
     }
   }
 

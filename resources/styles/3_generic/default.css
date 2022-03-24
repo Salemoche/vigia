@@ -156,7 +156,8 @@
   .vigia-button,
   input[type=button],
   button,
-  a[download] {
+  a[download],
+  .button:not(.add_to_cart_button) {
     @apply
       !border-3
     !border-black
@@ -167,6 +168,7 @@
     !bg-white
       !text-lg
       !inline-block
+      !text-center
       uppercase
       transition-colors
       duration-medium

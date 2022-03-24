@@ -5,6 +5,6 @@
   <div class="flex align-center flex-wrap w-full lg:w-1/2 p-5 lg:p-10">
     <h1 class="block normal-case">{{ the_field( 'number' )}} – {{ the_title() }}</h1>
     <div class="block mb-5">{{ the_field( 'lead' ) }} </div>
-    <x-button-order class="mb-0 lg:ml-0" :product="get_field( 'main_product' )"/>
+    <x-button-order class="mb-0 lg:ml-0 lg:mb-0" :product="get_field( 'main_product' )"/>
   </div>
 </header>

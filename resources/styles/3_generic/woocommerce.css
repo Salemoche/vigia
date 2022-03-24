@@ -1,0 +1,63 @@
+/**
+*========================================
+*
+*	Woocommerce
+*
+*========================================
+*/
+
+/* @layer components { */
+
+  /**========================
+  *	Archive Product
+  *========================*/
+
+  .price {
+    @apply
+      relative;
+  }
+
+  .woocommerce-LoopProduct-link {
+    @apply
+      w-full
+      text-center;
+  }
+
+  /* price */
+  .woocommerce-Price-amount {
+    @apply
+      inline-block
+      w-full
+      p-2.5
+      border-b-3
+    border-black
+      transition-opacity
+      duration-medium
+      group-hover:opacity-0;
+  }
+
+  /* add to cart */
+  .add_to_cart_button {
+    @apply
+      absolute
+      top-0
+      left-0
+      opacity-0
+      p-2.5
+      w-full
+      text-center
+      flex
+      justify-center
+      items-center
+      transition-opacity
+      duration-medium
+      group-hover:opacity-100
+      z-10
+      bg-black
+      text-white
+      text-base
+      normal-case
+      lg:text-base;
+  }
+
+/* } */

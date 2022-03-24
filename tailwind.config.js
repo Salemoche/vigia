@@ -1,5 +1,13 @@
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: ['./app/**/*.php', './resources/**/*.{php,vue,js}'],
+  safelist: [
+    'lg:grid-cols-1',
+    'lg:grid-cols-2',
+    'lg:grid-cols-3',
+    'lg:grid-cols-4',
+  ],
   theme: {
     container: {
       center: true
@@ -40,5 +48,17 @@ module.exports = {
       }
     }
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addVariant }) {
+      addVariant('second', '&:nth-child(2)')
+      addVariant('third', '&:nth-child(3)')
+      addVariant('fourth', '&:nth-child(4)')
+      addVariant('second-last', '&:nth-last-child(2)')
+      addVariant('third-last', '&:nth-last-child(3)')
+      addVariant('fourth-last', '&:nth-last-child(4)')
+      addVariant('every-second', '&:nth-child(2n)')
+      addVariant('every-third', '&:nth-child(3n)')
+      addVariant('every-fourth', '&:nth-child(4n)')
+    })
+  ]
 };

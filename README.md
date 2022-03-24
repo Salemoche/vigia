@@ -146,4 +146,7 @@ Keep track of development and community news.
 - add inc folder 
 - add namespace to the composer.json
 - $ composer dump-autoload -o
+
+- add woocommerce https://github.com/generoi/sage-woocommerce
+- place single-product.php and product-archive.php in a new /woocommerce folder
 # vigia
