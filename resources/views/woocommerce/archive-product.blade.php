@@ -17,7 +17,7 @@ the readme will list any important changes.
 
 @section('content')
   @php (do_action('get_header', 'shop')) @endphp
-  <x-cart-header/>
+  <x-headers.shop-header/>
   @php (do_action('woocommerce_before_main_content')) @endphp
 
   @if(woocommerce_product_loop())

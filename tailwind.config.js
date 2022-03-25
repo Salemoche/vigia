@@ -39,7 +39,8 @@ module.exports = {
         'green-light': '#CFF336',
       },
       borderWidth: {
-        3: '3px'
+        3: '3px',
+        5: '5px'
       },
       transitionDuration: {
         'short': '100ms',

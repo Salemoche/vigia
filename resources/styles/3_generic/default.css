@@ -14,6 +14,10 @@
     @apply text-sm lg:text-base;
   }
 
+  *:focus-visible {
+    @apply outline-1 outline-black;
+  }
+
   body,
   #app,
   main,
@@ -47,6 +51,39 @@
 
   p {
     @apply m-0 mb-5;
+  }
+
+  th {
+    @apply font-normal;
+  }
+
+
+  /**========================
+  *	Inputs
+  *========================*/
+
+  input[type=checkbox] {
+    @apply
+      border-3
+      border-black
+      outline-none
+      rounded-none
+      mr-2
+      after:bg-white
+      after:content-['']
+      after:rounded-full
+      after:border-3
+      after:border-black
+      after:w-5
+      after:h-5
+      after:absolute
+      checked:after:bg-black;
+
+    margin-top: 0.4rem;
+
+    &::after {
+      margin-top: -0.1rem;
+    }
   }
 }
 

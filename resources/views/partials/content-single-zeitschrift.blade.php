@@ -1,5 +1,5 @@
 <div class=""  @php(post_class())>
-  <x-magazine-header/>
+  <x-headers.magazine-header/>
   <div class="w-full">
     @foreach ( get_field( 'articles' ) as $article)
       @if ( $article['article'] )

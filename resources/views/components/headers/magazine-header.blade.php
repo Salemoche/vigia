@@ -1,5 +1,5 @@
 <header class="flex align-center flex-wrap flex-row lg:flex-column lg:flex-nowrap border-b-3 border-black">
-  <div class="vigia-magazine-slider w-full lg:w-1/2">
+  <div class="vigia-magazine-slider border-r-3 border-black w-full lg:w-1/2">
     <x-image-slider :images="get_field( 'images' )" />
   </div>
   <div class="flex align-center flex-wrap w-full lg:w-1/2 p-5 lg:p-10">

@@ -1,4 +1,4 @@
-<header class="flex direction-column items-center justify-center flex-wrap">
+<header class="flex flex-col items-center justify-center flex-wrap">
   <h1 class="basis-full text-xl">{{ the_title() }}</h1>
   <div class="text-center basis-full">{{ the_field('subtitle') }}</div>
   <div class="text-center basis-full mb-5">
