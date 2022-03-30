@@ -1,5 +1,5 @@
 <x-article-edition/>
-<article class="vigia-inner p-5 lg:p-10 mt-10 lg:mt-10 mb-5" @php(post_class())>
+<article class="vigia-inner" @php(post_class())>
   <x-headers.article-header/>
   @php(the_content())
   <footer>

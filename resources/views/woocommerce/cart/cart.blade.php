@@ -19,8 +19,6 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_cart' ); ?>
 
-<x-headers.cart-header/>
-
 <h1 class="vigia-cart-header" >{{ esc_html_e( 'Cart', 'woocommerce' ); }}</h1>
 <form class="woocommerce-cart-form" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
@@ -138,8 +136,8 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 			<?php do_action( 'woocommerce_cart_contents' ); ?>
 
-			{{-- <tr>
-				<td colspan="6" class="actions">
+			<tr class="w-full block">
+				<td colspan="6" class="actions w-full block">
 
 					@php if ( wc_coupons_enabled() ) { @endphp
 						<div class="coupon">
@@ -148,13 +146,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 						</div>
 					@php } @endphp
 
-					<button type="submit" class="button" name="update_cart" value="@php esc_attr_e( 'Update cart', 'woocommerce' ); @endphp">@php esc_html_e( 'Update cart', 'woocommerce' ); @endphp</button>
+					<button type="submit" class="vigia-refresh-button button w-full block my-5 lg:my-10" name="update_cart" value="@php esc_attr_e( 'Update cart', 'woocommerce' ); @endphp">@php esc_html_e( 'Update cart', 'woocommerce' ); @endphp</button>
 
 					@php do_action( 'woocommerce_cart_actions' ); @endphp
 
 					@php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); @endphp
 				</td>
-			</tr> --}}
+			</tr>
 
 			<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 		</tbody>

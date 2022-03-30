@@ -4,5 +4,5 @@
 @endphp
 
 <x-headers.simple-header :url="get_permalink( wc_get_page_id( 'shop' ) )">
-  <span class="before:content-['←'] before:relative before:mr-1" > {{ __( 'Products', 'woocommerce' ) }}</span>
+  <span class="vigia-before-arrow vigia-before-arrow-left vigia-before-arrow-hover before:mr-1 before:translate-y-0.5" > {{ __( 'Shop', 'woocommerce' ) }}</span>
 </x-headers.simple-header>

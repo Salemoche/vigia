@@ -1,4 +1,4 @@
-<div class="vigia-inner p-5 lg:p-10 mt-10 lg:mt-10 mb-5">
+<div class="vigia-inner">
   @php(the_content())
 </div>
 

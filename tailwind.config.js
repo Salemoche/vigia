@@ -21,6 +21,7 @@ module.exports = {
       '3xl': '1920px'
     },
     fontSize: {
+      0: ['0px', { lineHeight: '0px'}],
       xs: ['0.875rem', { lineHeight: '1.125rem' }], // 14px
       sm: ['1.125rem', { lineHeight: '1.375' }], // 18px
       base: ['1.625rem', { lineHeight: '1.875rem' }], // 26px
@@ -46,6 +47,18 @@ module.exports = {
         'short': '100ms',
         'medium': '300ms',
         'long': '600ms'
+      },
+      backgroundImage: {
+        'arrow-left': "url('/resources/images/Arrow_Left.svg')",
+        'arrow-left-negative': "url('/resources/images/Arrow_Left_Negative.svg')",
+        'arrow-right': "url('/resources/images/Arrow_Right.svg')",
+        'arrow-right-negative': "url('/resources/images/Arrow_Right_Negative.svg')",
+        'arrow-up': "url('/resources/images/Arrow_Up.svg')",
+        'arrow-up-negative': "url('/resources/images/Arrow_Up_Negative.svg')",
+        'arrow-down': "url('/resources/images/Arrow_Down.svg')",
+        'arrow-down-negative': "url('/resources/images/Arrow_Down_Negative.svg')",
+        'arrow-up-right': "url('/resources/images/Arrow_UpRight.svg')",
+        'arrow-up-right-negative': "url('/resources/images/Arrow_UpRight_Negative.svg')",
       }
     }
   },

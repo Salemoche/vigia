@@ -65,10 +65,11 @@ class Woocommerce {
         remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
         add_action( 'woocommerce_before_shop_loop_item', function () {
             if ( null !== get_field( 'linked_magazine' )) {
-                echo '<a href="' . get_the_permalink(get_field( 'linked_magazine' )) . '"class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
+                echo '<a href="' . get_the_permalink(get_field( 'linked_magazine' )) . '"class="group relative inline-block woocommerce-LoopProduct-link woocommerce-loop-product__link">';
             } else {
-                echo '<div class="woocommerce-LoopProduct-link woocommerce-loop-product__link">';
+                echo '<div class="group relative woocommerce-LoopProduct-link woocommerce-loop-product__link">';
             }
+            echo wp_get_attachment_image( get_field( 'hover_image' )['ID'], 'large', "", [ 'class' => "w-full absolute z-10 opacity-0 transition-opacity transition-long group-hover:opacity-100 top-0"] );
         }, 10 );
 
         remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 10 );

@@ -19,11 +19,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<ul class="
-  products
-  columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>
-  grid
-  grid-cols-1
-  sm:grid-cols-2
-  lg:grid-cols-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>
-">
+<ul
+  class="
+    products
+    columns-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>
+    grid
+    grid-cols-1
+    sm:grid-cols-2
+    lg:grid-cols-<?php echo esc_attr( wc_get_loop_prop( 'columns' ) ); ?>
+    border-black
+  "
+  style="width: calc(100% + 3px);"
+>

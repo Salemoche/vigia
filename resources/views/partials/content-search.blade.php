@@ -1,10 +1,8 @@
 <article @php(post_class())>
   <header>
-    <h2 class="entry-title">
-      <a href="{{ get_permalink() }}">
-        {!! $title !!}
-      </a>
-    </h2>
+    <h1 class="entry-title">
+      {{ __('Seite nicht gefunden', 'vigia')}}
+    </h1>
 
     @includeWhen(get_post_type() === 'post', 'partials.entry-meta')
   </header>

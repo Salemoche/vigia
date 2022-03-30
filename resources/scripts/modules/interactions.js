@@ -4,7 +4,8 @@ export const interactions = () => {
   const addEventListeners = () => {
     setTimeout(() => {
       menu();
-    }, 1000);
+      refreshCart();
+    }, 500);
   }
 
   addEventListeners();
@@ -36,5 +37,24 @@ export const interactions = () => {
 
       menuOpen = !menuOpen;
     })
+  }
+
+
+  /**========================
+  *	Refresh Cart
+  *========================*/
+
+  function refreshCart () {
+
+    const refreshButton = document.querySelector('.vigia-refresh-button')
+    const qtyChanges = document.querySelectorAll('input.qty')
+
+    if ( !refreshButton ) return
+
+    qtyChanges.forEach(qtyChange => {
+      qtyChange.addEventListener( 'change', () => {
+        refreshButton.classList.add('visible');
+      })
+    });
   }
 }

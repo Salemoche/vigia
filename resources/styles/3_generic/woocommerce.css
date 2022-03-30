@@ -36,7 +36,10 @@
     bg-white
     !text-black
     !p-0
-    after:content-['↓']
+    after:content-['']
+    after:bg-arrow-down
+    after:w-5
+    after:h-5
     after:ml-1;
 }
 
@@ -58,7 +61,13 @@
 .woocommerce-LoopProduct-link {
   @apply
     w-full
-    text-center;
+    text-center
+    ;
+
+  img {
+    @apply
+      -mb-2;
+  }
 }
 
 /* price */
@@ -99,6 +108,10 @@
     text-base
     normal-case
     lg:text-base;
+}
+
+a.wc-forward {
+  @apply mb-5 lg:mb-10;
 }
 
 
@@ -148,6 +161,23 @@
   input {
     @apply
       w-full;
+  }
+
+  .cart-subtotal,
+  .order-total,
+  .woocommerce-shipping-totals {
+    th, td {
+      @apply
+        w-1/2 flex-1;
+    }
+
+    td {
+      @apply text-right;
+    }
+
+    td[data-title="Versand"] {
+      @apply flex-1;
+    }
   }
 }
 
@@ -218,6 +248,20 @@
         text-right
         font-normal;
     }
+  }
+}
+
+.vigia-refresh-button {
+  @apply max-h-0 !transition-all duration-medium overflow-hidden !p-0 !border-0 !mb-0;
+
+  &.visible {
+    @apply
+      max-h-20
+      !border-3
+      !px-5
+      !py-2.5
+      !mb-10
+      !mt-7;
   }
 }
 
@@ -292,19 +336,6 @@
       text-right;
   }
 
-  .cart-subtotal,
-  .order-total,
-  .woocommerce-shipping-totals {
-    th, td {
-      @apply
-        w-1/2;
-    }
-
-    td {
-      @apply text-right;
-    }
-  }
-
   .payment_methods {
     li {
       @apply
@@ -327,17 +358,23 @@
 
 .woocommerce-notices-wrapper {
   @apply
-    w-full;
+    w-full
+    text-center;
 
   .woocommerce-message {
     @apply
       w-full
       flex
-      flex-col;
+      flex-col
+      mb-5
+      lg:mb-10;
 
-      .button {
+      .button,
+      .restore-item {
         @apply
-          w-full;
+          w-full
+          mt-5
+          lg:mt-10;
       }
   }
 }

@@ -5,19 +5,46 @@
   *========================*/
 
   .wp-block-file {
+    .wp-block-file__button {
 
+      @apply
+      border-3
+    border-black
+      px-5
+      py-2.5
+    text-black
+      rounded-none
+    bg-white
+      text-lg
+      inline-block
+      text-center
+      uppercase
+      transition-colors
+      duration-medium
+    hover:!bg-black
+    hover:!text-white
+      after:hidden;
+    }
   }
 
-  .has-bs-small-font-size {
+  .has-bs-small-font-size,
+  .has-bs-small-font-size * {
     @apply !text-xs lg:!text-sm;
   }
 
-  .has-bs-medium-font-size {
+  .has-bs-medium-font-size,
+  .has-bs-medium-font-size * {
     @apply !text-sm lg:!text-base;
   }
 
-  .has-bs-large-font-size {
+  .has-bs-large-font-size,
+  .has-bs-large-font-size * {
     @apply !text-base lg:!text-lg;
   }
 
+  .wp-block-separator {
+    @apply
+      border-0
+      border-b-3;
+  }
 /* } */

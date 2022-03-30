@@ -10,6 +10,10 @@
     font-family: 'SuisseIntl', 'Helvetica', noserif;
   }
 
+  html {
+    @apply scroll-smooth;
+  }
+
   html * {
     @apply text-sm lg:text-base;
   }
@@ -57,10 +61,44 @@
     @apply font-normal;
   }
 
+  a {
+    @apply
+      after:content-['']
+      after:bg-arrow-up-right
+      after:w-5
+      after:h-5
+      after:inline-block
+      after:ml-1;
+  }
 
-  /**========================
+  li.vigia-menu-item > a,
+  .price > a,
+  li.product > a,
+  .vigia-article-placeholder a,
+  .vigia-simple-header,
+  .vigia-magazine-article,
+  .vigia-magazine-link,
+  .cart_item a,
+  .ab-item {
+    @apply
+      after:rotate-0
+      after:hidden;
+  }
+
+  hr {
+    @apply
+      border-0
+      border-b-3;
+  }
+
+
+  /**
+  *========================================
+  *
   *	Inputs
-  *========================*/
+  *
+  *========================================
+  */
 
   input[type=checkbox] {
     @apply
@@ -89,21 +127,44 @@
 
 @layer components {
 
-  /**========================
+  /**
+  *========================================
+  *
   *	Vigia
-  *========================*/
+  *
+  *========================================
+  */
 
   .vigia-content {
-    @apply mx-auto;
+    @apply
+      mx-auto
+      my-0
+      pb-5;
   }
 
   .vigia-content-page {
     @apply container mx-auto p-5 lg:p-10 mt-7 mb-5;
   }
 
+  .vigia-content-zeitschrift {
+    @apply
+      pb-0
+      ;
+  }
+
   .vigia-inner {
+    @apply
+      mt-10
+      lg:mt-10
+      mb-5;
+
     > * {
-      @apply mx-auto sm:max-w-sm lg:max-w-5xl;
+      @apply
+      mx-auto
+      px-5
+      sm:max-w-sm
+      lg:max-w-5xl
+      lg:px-10;
     }
   }
 
@@ -181,8 +242,11 @@
           after:inline-block
           after:transition-transform
           after:duration-medium
-          after:content-['↓']
-          after:ml-5
+          after:content-['']
+          after:bg-arrow-down
+          after:w-5
+          after:h-5
+          after:ml-1
           lg:after:hidden
           pointer-events-none
           lg:after:ml-0;
@@ -192,24 +256,172 @@
 
   .vigia-button,
   input[type=button],
+  input[type=submit]
   button,
   a[download],
+  a.wp-block-button__link,
+  a.restore-item,
   .button:not(.add_to_cart_button) {
     @apply
-      !border-3
-    !border-black
-      !px-5
-      !py-2.5
-    !text-black
-      !rounded-none
-    !bg-white
-      !text-lg
-      !inline-block
-      !text-center
+      border-3
+    border-black
+      px-5
+      py-2.5
+    text-black
+      rounded-none
+    bg-white
+      text-lg
+      inline-block
+      text-center
       uppercase
       transition-colors
       duration-medium
     hover:!bg-black
-    hover:!text-white;
+    hover:!text-white
+      after:hidden;
+  }
+
+  .vigia-before-arrow {
+    @apply
+      before:content-['']
+      before:w-5
+      before:h-5
+      before:relative
+      before:inline-block
+      before:bg-no-repeat
+    ;
+  }
+
+  .vigia-before-arrow-left {
+    @apply before:bg-arrow-left group-hover:before:bg-arrow-left-negative;
+  }
+
+  .vigia-before-arrow-right {
+    @apply before:bg-arrow-right group-hover:before:bg-arrow-right-negative;
+  }
+
+  .vigia-before-arrow-up {
+    @apply before:bg-arrow-up group-hover:before:bg-arrow-up-negative;
+  }
+
+  .vigia-before-arrow-down {
+    @apply before:bg-arrow-down group-hover:before:bg-arrow-down-negative;
+  }
+
+  .vigia-before-arrow-up-right {
+    @apply before:bg-arrow-up-right group-hover:before:bg-arrow-up-right-negative;
+  }
+
+  .vigia-before-arrow-hover {
+    @apply
+      before:transition-all
+      before:duration-medium;
+  }
+
+  .vigia-after-arrow {
+    @apply
+      after:content-['']
+      after:w-5
+      after:h-5
+      after:relative
+      after:inline-block
+      after:bg-no-repeat
+    ;
+  }
+
+  .vigia-after-arrow-left {
+    @apply after:bg-arrow-left group-hover:after:bg-arrow-left-negative;
+  }
+
+  .vigia-after-arrow-right {
+    @apply after:bg-arrow-right group-hover:after:bg-arrow-right-negative;
+  }
+
+  .vigia-after-arrow-up {
+    @apply after:bg-arrow-up group-hover:after:bg-arrow-up-negative;
+  }
+
+  .vigia-after-arrow-down {
+    @apply after:bg-arrow-down group-hover:after:bg-arrow-down-negative;
+  }
+
+  .vigia-after-arrow-up-right {
+    @apply after:bg-arrow-up-right group-hover:after:bg-arrow-up-right-negative;
+  }
+
+  .vigia-after-arrow-hover {
+    @apply
+      after:transition-all
+      after:duration-medium;
+  }
+
+}
+
+/**
+*========================================
+*
+*	Minor Plugins
+*
+*========================================
+*/
+
+
+/**========================
+*	Mailer Lite
+*========================*/
+
+#mailerlite-form_1 {
+
+  .mailerlite-form {
+
+    .mailerlite-form-title,
+    .mailerlite-form-description {
+      @apply hidden;
+    }
+
+    .mailerlite-form-title {
+      @apply hidden;
+    }
+
+    .mailerlite-form-inputs {
+      @apply flex flex-col ;
+
+      label {
+        @apply hidden;
+      }
+
+      .mailerlite-form-field {
+        @apply flex-1 basis-full;
+
+        input {
+          @apply
+            border-b-3
+            border-black
+            placeholder:text-gray-dark
+            mx-auto
+            block;
+        }
+      }
+
+      input[type=submit] {
+        @apply
+        !border-3
+      !border-black
+        !px-5
+        !py-2.5
+      !text-black
+        !rounded-none
+      !bg-white
+        !text-lg
+        !inline-block
+        !text-center
+        /* uppercase */
+        transition-colors
+        duration-medium
+      hover:!bg-black
+      hover:!text-white;
+      }
+    }
+
   }
 }

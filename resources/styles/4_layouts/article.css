@@ -1,0 +1,11 @@
+.vigia-content-post {
+  a[href^="#"]:not(.scroll-to-author) {
+    @apply after:hidden text-xs lg:text-sm;
+  }
+
+  .vigia-footnotes {
+    span, p, a {
+      @apply inline text-xs lg:text-sm;
+    }
+  }
+}

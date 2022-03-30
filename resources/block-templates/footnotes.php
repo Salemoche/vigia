@@ -8,23 +8,23 @@
 *
 * ============================================= */
 
-// $repeaterArray = $block['data'];
-$footnotes = $block['data'];
+$repeaterArray = $block['data'];
+$footnotes = [];
 $index = 1;
 
-// echo '<hr><pre class="sm-debug">';
-// print_r($block['data']);
-// echo '</pre><hr>';
-// wp_die();
+foreach ($repeaterArray as $key => $repeaterValue) {
+    // if ( !str_contains($key, '_footnotes') && str_contains($key, '_')) {
+    if ( preg_match( '/^footnotes_\d_footnote/' , $key) ) {
+        array_push( $footnotes, $repeaterValue );
+    }
+}
 ?>
 
-<div class="vigia-footnotes">
-    Footnotes
-    <!-- < ?php foreach ($footnotes as $key => $footnote) :
-        if ( intval($index) % 2 == 0) : ?>
-        <div class="vigia-footnote">
-            < ?php echo $index;?>
-            < ?php echo $footnote; ?>
+<div class="vigia-footnotes mb-5 lg:mb-10 max-w-3xl">
+    <?php foreach ($footnotes as $footnote) : ?>
+        <div id="<?php echo $index ?>"class="vigia-footnote">
+            <span><?php echo $index;?></span>
+            <?php echo $footnote; ?>
         </div>
-    < ?php $index++; endif; endforeach; ?> -->
+    <?php $index++; endforeach; ?>
 </div>
