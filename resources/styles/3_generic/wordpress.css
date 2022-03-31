@@ -5,13 +5,25 @@
   *========================*/
 
   .wp-block-file {
-    .wp-block-file__button {
+    @apply
+      flex
+      flex-col
+      items-center
+    ;
 
+    a:first-of-type {
+      @apply
+        mb-5
+      ;
+    }
+
+    .wp-block-file__button {
       @apply
       border-3
     border-black
       px-5
       py-2.5
+      m-0
     text-black
       rounded-none
     bg-white

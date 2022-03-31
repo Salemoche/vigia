@@ -23,14 +23,12 @@
   }
 
   body,
-  #app,
-  main,
-  .vigia-content {
+  #app {
     min-height: 100vh;
   }
 
   #app {
-    @apply border-3 border-black;
+    @apply border-3 border-black border-t-0;
   }
 
   h1,
@@ -65,10 +63,13 @@
     @apply
       after:content-['']
       after:bg-arrow-up-right
-      after:w-5
-      after:h-5
+      after:w-4
+      after:h-4
+      lg:after:w-5
+      lg:after:h-5
       after:inline-block
-      after:ml-1;
+      after:ml-1
+      after:mr-1;
   }
 
   li.vigia-menu-item > a,
@@ -100,13 +101,13 @@
   *========================================
   */
 
+  input[type=radio],
   input[type=checkbox] {
     @apply
       border-3
       border-black
       outline-none
       rounded-none
-      mr-2
       after:bg-white
       after:content-['']
       after:rounded-full
@@ -154,8 +155,8 @@
 
   .vigia-inner {
     @apply
-      mt-10
-      lg:mt-10
+      pt-20
+      lg:pt-10
       mb-5;
 
     > * {
@@ -244,9 +245,11 @@
           after:duration-medium
           after:content-['']
           after:bg-arrow-down
-          after:w-5
-          after:h-5
+          after:w-7
+          after:h-7
+          after:mt-3
           after:ml-1
+          after:bg-no-repeat
           lg:after:hidden
           pointer-events-none
           lg:after:ml-0;
@@ -289,6 +292,7 @@
       before:relative
       before:inline-block
       before:bg-no-repeat
+      before:ml-1
     ;
   }
 
@@ -326,6 +330,7 @@
       after:relative
       after:inline-block
       after:bg-no-repeat
+      after:mr-1
     ;
   }
 
@@ -415,6 +420,7 @@
         !text-lg
         !inline-block
         !text-center
+        cursor-pointer
         /* uppercase */
         transition-colors
         duration-medium

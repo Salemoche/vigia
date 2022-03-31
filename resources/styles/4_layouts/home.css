@@ -1,0 +1,21 @@
+.home {
+  /* #app {
+    @apply
+      flex
+      flex-col
+      h-screen
+      flex-1
+      overflow-y-scroll
+    ;
+  }
+
+  main {
+    @apply
+      flex-1
+    ;
+  } */
+
+  .vigia-content {
+    @apply p-0;
+  }
+}

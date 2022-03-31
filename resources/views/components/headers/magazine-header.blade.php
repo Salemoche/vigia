@@ -1,4 +1,4 @@
-<header class="flex align-center flex-wrap flex-row lg:flex-column lg:flex-nowrap border-b-3 border-black">
+<header class="flex align-center pt-15 lg:pt-0 flex-wrap flex-row lg:flex-column lg:flex-nowrap border-b-3 border-black">
   <div class="vigia-magazine-slider border-r-3 border-black w-full lg:w-1/2">
     <x-image-slider :images="get_field( 'images' )" />
   </div>

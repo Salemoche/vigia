@@ -1,0 +1,12 @@
+.single-zeitschrift {
+
+  #app {
+    @apply border-b-0;
+  }
+
+  .vigia-content {
+    @apply pb-0;
+  }
+
+
+}

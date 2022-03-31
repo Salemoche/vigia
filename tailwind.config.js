@@ -31,6 +31,8 @@ module.exports = {
     extend: {
       spacing: {
         15: '3.75rem',
+        20: '5rem',
+        'screen-minus-nav': 'calc(100vh - 60px - 9px)'
       },
       colors: {
         'gray-light': '#D6D6D6',
@@ -46,7 +48,8 @@ module.exports = {
       transitionDuration: {
         'short': '100ms',
         'medium': '300ms',
-        'long': '600ms'
+        'long': '600ms',
+        'extra-long': '1000ms',
       },
       backgroundImage: {
         'arrow-left': "url('/resources/images/Arrow_Left.svg')",
@@ -59,6 +62,10 @@ module.exports = {
         'arrow-down-negative': "url('/resources/images/Arrow_Down_Negative.svg')",
         'arrow-up-right': "url('/resources/images/Arrow_UpRight.svg')",
         'arrow-up-right-negative': "url('/resources/images/Arrow_UpRight_Negative.svg')",
+        'arrow-up-right-gray': "url('/resources/images/Arrow_UpRight_Gray.svg')",
+      },
+      gridTemplateColumns: {
+        'payment': '1.25rem auto'
       }
     }
   },

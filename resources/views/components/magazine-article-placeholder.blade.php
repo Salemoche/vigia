@@ -10,7 +10,7 @@
     target="_blank"
     class="p-5 absolute left-0 opacity-0 top-0 w-full z-100 pointer-events-none transition-opacity duration-medium group-hover:opacity-100 group-hover:pointer-events-auto">
     <div class="text-base lg:text-lg">{{ __('Beitrag nicht online verfügbar', 'vigia') }} </div>
-    <div class="after:bg-arrow-up-right after:w-5 after:h-5 after:inline-block" >
+    <div class="after:bg-arrow-up-right-gray after:w-3 after:h-3 after:inline-block" >
       {{ sprintf( __( 'Nr. %1$s «%2$s» bestellen', 'vigia' ), get_field( 'number' ) ?: '', get_field( 'title_clean', get_field( 'main_product' )->ID) ?: '' ) }}
     </div>
   </a>

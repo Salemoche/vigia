@@ -14,7 +14,7 @@ $index = 1;
 
 foreach ($repeaterArray as $key => $repeaterValue) {
     // if ( !str_contains($key, '_footnotes') && str_contains($key, '_')) {
-    if ( preg_match( '/^footnotes_\d_footnote/' , $key) ) {
+    if ( preg_match( '/^[^_]\w+_\d_\w+$/' , $key) ) {
         array_push( $footnotes, $repeaterValue );
     }
 }

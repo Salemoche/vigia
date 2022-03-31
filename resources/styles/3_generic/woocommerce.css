@@ -49,6 +49,14 @@
     -translate-y-1/2;
 }
 
+
+/**========================
+*	Shop
+*========================*/
+.subscription-details {
+  @apply hidden;
+}
+
 /**========================
 *	Archive Product
 *========================*/
@@ -121,7 +129,8 @@ a.wc-forward {
 
 .woocommerce-cart-form,
 .cart-collaterals,
-.checkout {
+.checkout,
+.woocommerce-order {
 
   table, tfoot {
     @apply
@@ -251,6 +260,11 @@ a.wc-forward {
   }
 }
 
+.return-to-shop .button {
+  @apply
+    w-full;
+}
+
 .vigia-refresh-button {
   @apply max-h-0 !transition-all duration-medium overflow-hidden !p-0 !border-0 !mb-0;
 
@@ -311,7 +325,8 @@ a.wc-forward {
       @apply
         flex
         border-b-3
-        border-black;
+        border-black
+        gap-2.5;
 
       input[type=checkbox] {
         @apply
@@ -339,7 +354,44 @@ a.wc-forward {
   .payment_methods {
     li {
       @apply
-        mt-5;
+        mt-5
+        grid
+        gap-x-2.5
+        gap-y-5
+        grid-cols-payment;
+
+      p {
+        @apply
+          last:mb-0;
+        ;
+      }
+
+      input {
+        @apply
+          row-start-1
+          row-end-2
+          col-start-1
+          col-end-2
+        ;
+      }
+
+      label {
+        @apply
+          row-start-1
+          row-end-2
+          col-start-2
+          col-end-3
+        ;
+      }
+
+      .payment_box {
+        @apply
+          row-start-2
+          row-end-3
+          col-start-2
+          col-end-3
+        ;
+      }
     }
   }
 
@@ -350,7 +402,30 @@ a.wc-forward {
 
 }
 
+.paypal-buttons {
+  @apply
+    mx-auto
+    !block
+  ;
+}
 
+/* Order Review */
+
+.woocommerce-order {
+  .woocommerce-order-overview,
+  .wc-bacs-bank-details {
+    @apply mb-10;
+
+    li {
+      @apply
+        border-b-3
+        border-black
+        flex
+        justify-between
+      ;
+  }
+  }
+}
 
 /**========================
 *	Notices
