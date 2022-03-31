@@ -20,10 +20,10 @@ foreach ($repeaterArray as $key => $repeaterValue) {
 }
 ?>
 
-<div class="vigia-footnotes mb-5 lg:mb-10 max-w-3xl">
+<div class="vigia-footnotes mb-5 lg:mb-10 sm:max-w-md lg:max-w-3xl">
     <?php foreach ($footnotes as $footnote) : ?>
         <div id="<?php echo $index ?>"class="vigia-footnote">
-            <span><?php echo $index;?></span>
+            <span class="inlne-block mr-5"><?php echo $index;?></span>
             <?php echo $footnote; ?>
         </div>
     <?php $index++; endforeach; ?>

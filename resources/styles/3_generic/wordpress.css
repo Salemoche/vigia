@@ -35,6 +35,8 @@
       duration-medium
     hover:!bg-black
     hover:!text-white
+    visited:!text-black
+    hover:visited:!text-white
       after:hidden;
     }
   }

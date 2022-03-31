@@ -31,6 +31,7 @@ module.exports = {
     extend: {
       spacing: {
         15: '3.75rem',
+        18: '4.4rem',
         20: '5rem',
         'screen-minus-nav': 'calc(100vh - 60px - 9px)'
       },

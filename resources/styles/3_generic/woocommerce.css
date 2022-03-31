@@ -193,6 +193,10 @@ a.wc-forward {
 .wc-proceed-to-checkout,
 #payment {
 
+  .woocommerce-notice {
+    @apply !block;
+  }
+
   .button,
   button {
     @apply
@@ -423,7 +427,7 @@ a.wc-forward {
         flex
         justify-between
       ;
-  }
+    }
   }
 }
 

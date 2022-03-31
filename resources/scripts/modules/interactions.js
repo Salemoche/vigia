@@ -5,6 +5,7 @@ export const interactions = () => {
     setTimeout(() => {
       menu();
       refreshCart();
+      newsletterButton();
     }, 500);
   }
 
@@ -56,5 +57,29 @@ export const interactions = () => {
         refreshButton.classList.add('visible');
       })
     });
+  }
+
+
+  /**========================
+  *	Newsletter
+  *========================*/
+
+  function newsletterButton () {
+    const input = document.querySelector('.mailerlite-form input[type="email"]');
+    const newsletterButton = document.querySelector('.mailerlite-subscribe-submit');
+
+    input.addEventListener( 'keyup', () => {
+
+      const value = input.value
+      const isMail = value.match(/[\w\n]+@[\w\n]+\.\w+/gi)
+
+      if ( isMail) {
+        newsletterButton.classList.add('active')
+      } else {
+        newsletterButton.classList.remove('active')
+      }
+
+
+    })
   }
 }

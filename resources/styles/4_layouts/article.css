@@ -1,4 +1,7 @@
 .vigia-content-post {
+
+  @apply pb-0;
+
   a[href^="#"]:not(.scroll-to-author) {
     @apply after:hidden text-xs lg:text-sm;
   }

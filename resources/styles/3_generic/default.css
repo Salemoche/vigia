@@ -40,6 +40,17 @@
     @apply text-lg text-center uppercase mb-5;
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    * {
+      @apply text-lg text-center uppercase mb-5;
+    }
+  }
+
   hr {
     @apply my-5 lg:my-10 !max-w-none;
   }
@@ -140,7 +151,9 @@
     @apply
       mx-auto
       my-0
-      pb-5;
+      pb-5
+      pt-18
+      lg:pt-0;
   }
 
   .vigia-content-page {
@@ -155,15 +168,15 @@
 
   .vigia-inner {
     @apply
-      pt-20
-      lg:pt-10
+      /* pt-18
+      sm:pt-10 */
       mb-5;
 
     > * {
       @apply
       mx-auto
       px-5
-      sm:max-w-sm
+      sm:max-w-md
       lg:max-w-5xl
       lg:px-10;
     }
@@ -171,7 +184,7 @@
 
   .vigia-header {
 
-    @apply fixed lg:sticky lg:top-0 w-full z-10 lg:bg-white transition-all duration-medium pointer-events-none;
+    @apply fixed lg:sticky lg:top-0 w-full z-50 lg:bg-white transition-all duration-medium pointer-events-none;
 
     &.active {
 
@@ -392,7 +405,7 @@
       @apply flex flex-col ;
 
       label {
-        @apply hidden;
+        @apply !hidden;
       }
 
       .mailerlite-form-field {
@@ -408,6 +421,17 @@
         }
       }
 
+      .error {
+        @apply hidden;
+      }
+
+      input[type=submit] {
+        @apply
+          !text-black
+          placeholder:!text-black
+        ;
+      }
+
       input[type=submit] {
         @apply
         !border-3
@@ -420,12 +444,21 @@
         !text-lg
         !inline-block
         !text-center
+        opacity-50
+        pointer-events-none
         cursor-pointer
         /* uppercase */
         transition-colors
         duration-medium
       hover:!bg-black
-      hover:!text-white;
+      hover:!text-white
+        ;
+
+        &.active {
+          @apply
+            opacity-100
+            pointer-events-auto;
+        }
       }
     }
 

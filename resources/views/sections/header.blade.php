@@ -1,4 +1,4 @@
-<header class="banner vigia-header">
+<header class="banner vigia-header top-0 lg:top-unset">
   {{-- <a class="brand" href="{{ home_url('/') }}">
     {!! $siteName !!}
   </a> --}}
@@ -9,7 +9,7 @@
         'theme_location'  => 'primary_navigation',
         'menu_class'      => 'nav flex flex-row lg:flex-column flex-wrap lg:flex-nowrap max-w-screen-3xl mx-auto',
         'echo'            => false,
-        'add_li_class'    => 'vigia-menu-item'
+        'add_li_class'    => 'vigia-menu-item border-black'
       ]) !!}
     </nav>
   @endif

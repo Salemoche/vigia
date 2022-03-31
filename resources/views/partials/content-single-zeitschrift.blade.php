@@ -3,7 +3,7 @@
   <div class="w-full">
     @foreach ( get_field( 'articles' ) as $article)
       @if ( $article['article'] )
-        <x-magazine-article-real :article='$article' />
+        <x-magazine-article-real :article='$article["article"]' />
       @else
         <x-magazine-article-placeholder :article='$article' />
       @endif
