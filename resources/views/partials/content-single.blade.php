@@ -1,4 +1,3 @@
-<x-article-edition/>
 <article class="vigia-inner border-b-3 mb-0 border-black" @php(post_class())>
   <x-headers.article-header/>
   @php(the_content())

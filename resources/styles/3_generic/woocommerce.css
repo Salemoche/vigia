@@ -122,6 +122,10 @@ a.wc-forward {
   @apply mb-5 lg:mb-10;
 }
 
+.added_to_cart {
+  @apply hidden;
+}
+
 
 /**========================
 *	Cart & Checkout

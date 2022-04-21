@@ -135,6 +135,17 @@ class Gutenberg {
                 'icon'              => 'menu',
                 'keywords'          => array( 'block'),
             ));
+
+            acf_register_block_type(array(
+                'name'              => 'accordion',
+                'title'             => __('Ausklappbar', 'vigia'),
+                'description'       => __('A custom Block for an accordion block'),
+                'render_template'   => VIGIA_BLOCK_TEMPLATE_DIR . '/accordion.php',
+                'category'          => 'vigia',
+                'mode'              => 'auto',
+                'icon'              => 'image-flip-vertical',
+                'keywords'          => array( 'block'),
+            ));
         }
     }
 }

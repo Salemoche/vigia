@@ -14,6 +14,10 @@ the readme will list any important changes.
 
 @extends('layouts.app')
 
+@section('header')
+  @include('sections.navigation.main-navigation')
+@endsection
+
 @section('content')
 
   @php

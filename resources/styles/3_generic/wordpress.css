@@ -41,6 +41,13 @@
     }
   }
 
+  .wp-block-image img {
+    @apply
+      max-w-3/4
+      mx-auto
+    ;
+  }
+
   .has-bs-small-font-size,
   .has-bs-small-font-size * {
     @apply !text-xs lg:!text-sm;
@@ -60,5 +67,14 @@
     @apply
       border-0
       border-b-3;
+  }
+
+  .footnotes_table *{
+    @apply
+      text-gray-dark
+      !text-xs
+
+      lg:!text-sm
+    ;
   }
 /* } */

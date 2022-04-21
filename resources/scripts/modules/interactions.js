@@ -3,9 +3,11 @@ export const interactions = () => {
 
   const addEventListeners = () => {
     setTimeout(() => {
-      menu();
+      menuBehavior();
+      menuScroll();
       refreshCart();
       newsletterButton();
+      accordion();
     }, 500);
   }
 
@@ -15,7 +17,7 @@ export const interactions = () => {
   *	Menu
   *========================*/
 
-  function menu () {
+  function menuBehavior () {
 
     const currentMenuItem = document.querySelector('.current-menu-item');
     if (!currentMenuItem) return
@@ -31,12 +33,46 @@ export const interactions = () => {
       header.classList.toggle('active');
 
       if ( menuOpen ) {
-        header.styles.maxHeight = currentMenuItemHeight;
+        header.style.maxHeight = currentMenuItemHeight;
       } else {
-        header.styles.maxHeight = headerHeight;
+        header.style.maxHeight = headerHeight;
       }
 
       menuOpen = !menuOpen;
+    })
+
+    const isMagazine = window.location.href.includes('/zeitschriften/');
+
+    if ( !isMagazine ) return
+
+    const magazineMenuItem = document.querySelector('#menu-item-37 a');
+
+    magazineMenuItem.style.pointerEvents = 'all'
+
+    magazineMenuItem.addEventListener( 'click', (e) => {
+      e.preventDefault();
+
+      window.location = '/'
+    })
+  }
+
+  let scrollDist;
+
+  function menuScroll () {
+
+    const menu = document.querySelector('.vigia-header');
+
+    if (window.innerWidth < 1024 ) return
+
+    window.addEventListener( 'wheel', e => {
+
+      const scrollingDown = e.deltaY > 0;
+
+      if ( scrollingDown ) {
+        menu.style.top = '-100%';
+      } else {
+        menu.style.top = '0px';
+      }
     })
   }
 
@@ -68,6 +104,8 @@ export const interactions = () => {
     const input = document.querySelector('.mailerlite-form input[type="email"]');
     const newsletterButton = document.querySelector('.mailerlite-subscribe-submit');
 
+    if ( !input || !newsletterButton ) return
+
     input.addEventListener( 'keyup', () => {
 
       const value = input.value
@@ -81,5 +119,51 @@ export const interactions = () => {
 
 
     })
+  }
+  /**========================
+  *	Accordion
+  *========================*/
+
+  function accordion () {
+    const accordions = document.querySelectorAll('.vigia-accordion');
+
+    if (accordions.length == 0) return
+
+    accordions.forEach(accordion => {
+
+      const accordionContent = accordion.querySelector('p')
+      const accordionButton = accordion.querySelector('.vigia-accordion-button');
+      const lines = accordionContent.getClientRects().length
+      accordionContent.style.maxHeight = window.innerWidth > 1024 ? 'calc(5 * 1.875rem' : 'calc(5 * 1.375rem';
+
+      accordionButton.removeEventListener('click', () => { accordionButtonFunctions(accordion, accordionContent, accordionButton) })
+
+      // if (lines < 8) {
+      //   accordionButton.style.display = 'none';
+      // }
+
+      accordionButton.addEventListener('click', () => { accordionButtonFunctions(accordion, accordionContent, accordionButton) })
+    });
+  }
+
+  function accordionButtonFunctions (accordion, accordionContent, accordionButton) {
+
+    const isOpen = accordion.getAttribute('open') == 'true' ? true : false;
+    const height = accordionContent.scrollHeight;
+    console.log(height)
+
+    if (isOpen) {
+      accordionContent.style.maxHeight = window.innerWidth > 1024 ? 'calc(5 * 1.875rem' : 'calc(5 * 1.375rem';
+      accordion.classList.remove('open')
+      accordionButton.classList.remove('after:rotate-180')
+    } else {
+      accordionContent.style.maxHeight = height + 'px';
+      accordion.classList.add('open')
+      accordionButton.classList.add('after:rotate-180')
+    }
+
+    console.log(isOpen)
+
+    accordion.setAttribute('open', !isOpen)
   }
 }

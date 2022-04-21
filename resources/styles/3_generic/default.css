@@ -28,7 +28,7 @@
   }
 
   #app {
-    @apply border-3 border-black border-t-0;
+    /* @apply border-3 border-black border-t-0; */
   }
 
   h1,
@@ -37,7 +37,7 @@
   h4,
   h5,
   h6 {
-    @apply text-lg text-center uppercase mb-5;
+    @apply text-lg text-center mb-5;
   }
 
   h1,
@@ -47,7 +47,7 @@
   h5,
   h6 {
     * {
-      @apply text-lg text-center uppercase mb-5;
+      @apply text-lg text-center mb-5;
     }
   }
 
@@ -70,9 +70,13 @@
     @apply font-normal;
   }
 
+  sup {
+    @apply text-xs lg:text-sm;
+  }
+
   a {
-    @apply
-      after:content-['']
+    @apply underline hover:text-gray-dark
+      /* after:content-['']
       after:bg-arrow-up-right
       after:w-4
       after:h-4
@@ -80,29 +84,31 @@
       lg:after:h-5
       after:inline-block
       after:ml-1
-      after:mr-1;
+      after:mr-1; */
   }
 
-  li.vigia-menu-item > a,
-  .price > a,
-  li.product > a,
+  li.vigia-menu-item>a,
+  .price>a,
+  li.product>a,
   .vigia-article-placeholder a,
   .vigia-simple-header,
   .vigia-magazine-article,
   .vigia-magazine-link,
   .cart_item a,
-  .ab-item {
-    @apply
-      after:rotate-0
-      after:hidden;
+  .ab-item,
+  .vigia-footnote a {
+    @apply no-underline hover:text-black
+      /* after:rotate-0
+      after:hidden; */
   }
 
   hr {
-    @apply
-      border-0
-      border-b-3;
+    @apply border-0 border-b-3;
   }
 
+  figcaption {
+    @apply text-gray-dark;
+  }
 
   /**
   *========================================
@@ -114,20 +120,7 @@
 
   input[type=radio],
   input[type=checkbox] {
-    @apply
-      border-3
-      border-black
-      outline-none
-      rounded-none
-      after:bg-white
-      after:content-['']
-      after:rounded-full
-      after:border-3
-      after:border-black
-      after:w-5
-      after:h-5
-      after:absolute
-      checked:after:bg-black;
+    @apply border-3 border-black outline-none rounded-none after:bg-white after:content-[''] after:rounded-full after:border-3 after:border-black after:w-5 after:h-5 after:absolute checked:after:bg-black;
 
     margin-top: 0.4rem;
 
@@ -148,12 +141,7 @@
   */
 
   .vigia-content {
-    @apply
-      mx-auto
-      my-0
-      pb-5
-      pt-18
-      lg:pt-0;
+    @apply mx-auto my-0 pb-5 pt-18 lg:pt-0;
   }
 
   .vigia-content-page {
@@ -161,24 +149,18 @@
   }
 
   .vigia-content-zeitschrift {
-    @apply
-      pb-0
-      ;
+    @apply pb-0;
   }
 
   .vigia-inner {
-    @apply
-      /* pt-18
-      sm:pt-10 */
-      mb-5;
+    @apply pt-0 lg:pt-10 mx-auto pb-5 w-full
+      /* max-w-screen-3xl
+      3xl:border-x-3
+      3xl:border-b-3 */
+      border-black;
 
-    > * {
-      @apply
-      mx-auto
-      px-5
-      sm:max-w-md
-      lg:max-w-5xl
-      lg:px-10;
+    >* {
+      @apply mx-auto px-5 sm:max-w-md lg:max-w-1/2 lg:px-0 3xl:max-w-max-content-width;
     }
   }
 
@@ -201,112 +183,34 @@
   }
 
   .vigia-menu-item {
-    @apply
-      text-center
-      flex-1
-      basis-full
-      transition-all
-      duration-medium
-      border-b-3
-      border-black
-      border-t-0
-      order-2
-      opacity-0
-      pointer-events-none
-
-      lg:basis-1/4
-      lg:w-auto
-      lg:border-t-3
-      lg:border-r-3
-      lg:border-b-0
-      lg:last:border-r-0
-      lg:transition-colors
-      lg:duration-medium
-      lg:opacity-100
-      lg:pointer-events-auto
-      lg:order-1
-
-    hover:bg-black
-      hover:text-white;
+    @apply text-center flex-1 basis-full transition-all duration-medium border-b-3 border-black border-t-0 order-2 opacity-0 pointer-events-none lg:basis-1/4 lg:w-auto lg:border-r-3 lg:border-b-0 lg:last:border-r-0 lg:transition-colors lg:duration-medium lg:opacity-100 lg:pointer-events-auto lg:order-1 3xl:last:border-r-3 hover:bg-black hover:text-white;
 
     a {
-      @apply
-        w-full
-        h-full
-        p-2.5
-        inline-block
-        uppercase
-        text-lg;
+      @apply w-full h-full p-2.5 inline-block uppercase text-lg;
     }
 
     &.current-menu-item {
-      @apply
-      bg-white
-      lg:text-white
-        pointer-events-auto
-        order-1
-        opacity-100
-      lg:bg-black
-      hover:text-black
-      lg:hover:text-white
-      lg:hover:bg-black;
+      @apply bg-white lg:text-white pointer-events-auto order-1 opacity-100 lg:bg-black hover:text-black lg:hover:text-white lg:hover:bg-black;
 
       a {
-        @apply
-          after:inline-block
-          after:transition-transform
-          after:duration-medium
-          after:content-['']
-          after:bg-arrow-down
-          after:w-7
-          after:h-7
-          after:mt-3
-          after:ml-1
-          after:bg-no-repeat
-          lg:after:hidden
-          pointer-events-none
-          lg:after:ml-0;
+        @apply after:inline-block after:transition-transform after:duration-medium after:content-[''] after:bg-arrow-down after:w-7 after:h-7 after:mt-3 after:ml-1 after:bg-no-repeat lg:after:hidden pointer-events-none lg:after:ml-0;
       }
     }
   }
 
   .vigia-button,
   input[type=button],
-  input[type=submit]
-  button,
+  input[type=submit] button,
+  a.button,
   a[download],
   a.wp-block-button__link,
   a.restore-item,
   .button:not(.add_to_cart_button) {
-    @apply
-      border-3
-    border-black
-      px-5
-      py-2.5
-    text-black
-      rounded-none
-    bg-white
-      text-lg
-      inline-block
-      text-center
-      uppercase
-      transition-colors
-      duration-medium
-    hover:!bg-black
-    hover:!text-white
-      after:hidden;
+    @apply border-3 border-black px-5 py-2.5 text-black rounded-none bg-white text-lg inline-block text-center uppercase transition-colors duration-medium hover:!bg-black hover:!text-white after:hidden no-underline;
   }
 
   .vigia-before-arrow {
-    @apply
-      before:content-['']
-      before:w-5
-      before:h-5
-      before:relative
-      before:inline-block
-      before:bg-no-repeat
-      before:ml-1
-    ;
+    @apply before:content-[''] before:w-5 before:h-5 before:relative before:inline-block before:bg-no-repeat before:ml-1;
   }
 
   .vigia-before-arrow-left {
@@ -330,21 +234,11 @@
   }
 
   .vigia-before-arrow-hover {
-    @apply
-      before:transition-all
-      before:duration-medium;
+    @apply before:transition-all before:duration-medium;
   }
 
   .vigia-after-arrow {
-    @apply
-      after:content-['']
-      after:w-5
-      after:h-5
-      after:relative
-      after:inline-block
-      after:bg-no-repeat
-      after:mr-1
-    ;
+    @apply after:content-[''] after:w-5 after:h-5 after:relative after:inline-block after:bg-no-repeat after:mr-1;
   }
 
   .vigia-after-arrow-left {
@@ -368,9 +262,7 @@
   }
 
   .vigia-after-arrow-hover {
-    @apply
-      after:transition-all
-      after:duration-medium;
+    @apply after:transition-all after:duration-medium;
   }
 
 }
@@ -402,22 +294,17 @@
     }
 
     .mailerlite-form-inputs {
-      @apply flex flex-col ;
+      @apply flex flex-col;
 
       label {
-        @apply !hidden;
+        @apply  !hidden;
       }
 
       .mailerlite-form-field {
         @apply flex-1 basis-full;
 
         input {
-          @apply
-            border-b-3
-            border-black
-            placeholder:text-gray-dark
-            mx-auto
-            block;
+          @apply border-b-3 border-black placeholder:text-gray-dark mx-auto block;
         }
       }
 
@@ -426,38 +313,16 @@
       }
 
       input[type=submit] {
-        @apply
-          !text-black
-          placeholder:!text-black
-        ;
+        @apply  !text-black placeholder:!text-black;
       }
 
       input[type=submit] {
-        @apply
-        !border-3
-      !border-black
-        !px-5
-        !py-2.5
-      !text-black
-        !rounded-none
-      !bg-white
-        !text-lg
-        !inline-block
-        !text-center
-        opacity-50
-        pointer-events-none
-        cursor-pointer
+        @apply  !border-3 !border-black !px-5 !py-2.5 !text-black !rounded-none !bg-white !text-lg !inline-block !text-center opacity-50 pointer-events-none cursor-pointer
         /* uppercase */
-        transition-colors
-        duration-medium
-      hover:!bg-black
-      hover:!text-white
-        ;
+        transition-colors duration-medium hover:!bg-black hover:!text-white;
 
         &.active {
-          @apply
-            opacity-100
-            pointer-events-auto;
+          @apply opacity-100 pointer-events-auto;
         }
       }
     }

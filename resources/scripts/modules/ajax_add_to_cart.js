@@ -1,11 +1,11 @@
 
 
 jQuery(document).ready(function ($) {
-  $('.ajax_add_to_cart').on('click', function (e) {
-    e.preventDefault();
-  });
+
+  console.log('loading script')
 
   $('.ajax_add_to_cart').on('click', function (e) {
+    console.log('prevented default')
     e.preventDefault();
     $thisbutton = $(this),
       $form = $thisbutton.closest('form.cart'),
@@ -37,7 +37,7 @@ jQuery(document).ready(function ($) {
           window.location = response.product_url;
           return;
         } else {
-          $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
+          // $(document.body).trigger('added_to_cart', [response.fragments, response.cart_hash, $thisbutton]);
         }
       },
     });

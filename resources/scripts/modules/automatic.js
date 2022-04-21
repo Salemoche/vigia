@@ -8,6 +8,7 @@ export const automatic = () => {
   function startScripts () {
     windowSize();
     addMenuClasses();
+    articleImageSizing();
   }
 
   function windowSize () {
@@ -41,5 +42,26 @@ export const automatic = () => {
       document.querySelector('.menu-item-41').classList.add('current-menu-item');
     }
   }
+
+
+  /**========================
+  *	Article Image Sizing
+  *========================*/
+
+  function articleImageSizing() {
+    const images = document.querySelectorAll('.wp-block-image');
+
+    images.forEach(image => {
+      const imageNode = image.firstChild;
+      const isPortrait = parseInt(imageNode.getAttribute('height')) > parseInt(imageNode.getAttribute('width'));
+
+      if (isPortrait) {
+        imageNode.style.maxHeight = image.offsetWidth * 0.75 + 'px';
+        imageNode.style.width = 'auto';
+      }
+    });
+  }
+
+
 
 }

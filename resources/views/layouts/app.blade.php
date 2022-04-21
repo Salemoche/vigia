@@ -2,18 +2,18 @@
   {{ __('Skip to content') }}
 </a>
 
-@include('sections.header')
+@yield('header')
 
-  <main id="main" class="main">
-    <div class="vigia-content vigia-content-{{ get_post_type() }}">
-      @yield('content')
-    </div>
-  </main>
+<main id="main" class="main">
+  <div class="vigia-content vigia-content-{{ get_post_type() }}">
+    @yield('content')
+  </div>
+</main>
 
-  @hasSection('sidebar')
-    <aside class="sidebar">
-      @yield('sidebar')
-    </aside>
-  @endif
+@hasSection('sidebar')
+  <aside class="sidebar">
+    @yield('sidebar')
+  </aside>
+@endif
 
 {{-- @include('sections.footer') --}}

@@ -23,7 +23,7 @@ foreach ($repeaterArray as $key => $repeaterValue) {
 <div class="vigia-footnotes mb-5 lg:mb-10 sm:max-w-md lg:max-w-3xl">
     <?php foreach ($footnotes as $footnote) : ?>
         <div id="<?php echo $index ?>"class="vigia-footnote">
-            <span class="inlne-block mr-5"><?php echo $index;?></span>
+            <a href="#link-<?php echo $index ?>" class="inlne-block mr-5"><?php echo $index;?></a>
             <?php echo $footnote; ?>
         </div>
     <?php $index++; endforeach; ?>
