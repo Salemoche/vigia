@@ -22,7 +22,10 @@
       transition-color
       duration-medium
       hover:bg-black
-      hover:text-white'
+      hover:text-white
+      3xl:border-x-3
+      bg-white
+      order-1'
     ])}}
   >
     {{ $slot }}

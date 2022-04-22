@@ -4,6 +4,8 @@
 
 @yield('header')
 
+@include('sections.loading')
+
 <main id="main" class="main">
   <div class="vigia-content vigia-content-{{ get_post_type() }}">
     @yield('content')

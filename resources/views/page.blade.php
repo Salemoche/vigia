@@ -7,6 +7,8 @@
   @elseif (is_checkout())
     {{-- <x-headers.checkout-header/> --}}
     @include('sections.navigation.checkout-navigation')
+  @else
+    @include('sections.navigation.main-navigation')
   @endif
 @endsection
 

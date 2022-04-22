@@ -19,25 +19,29 @@ defined( 'ABSPATH' ) || exit;
 
 // get_header( 'shop' );
 
-$cart = WC()->cart;
-$totals = $cart->get_totals()['total'];
-
 ?>
 
-<header class="banner vigia-header top-0 lg:top-unset 3xl:border-b-3 border-black">
+<div class="vigia-loading" style="width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; background: white; z-index: 1000; transition: opacity 600ms;"></div>
+regular test
+<header class="banner vigia-header top-0 lg:top-unset border-black">
 
   <?php if (has_nav_menu('primary_navigation')): ?>
-    <nav class="nav-primary vigia-navigation mx-auto max-w-screen-3xl lg:border-b-3 lg:border-t-0 w-full  //bs-todo3xl:border-x-3 3xl:border-b-0 border-black" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
+    <nav class="nav-primary vigia-navigation mx-auto lg:border-b-3 lg:border-t-0 w-full  //bs-todo3xl:border-x-33xl:border-b-0 border-black order-1" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
       <?php echo wp_nav_menu([
         'theme_location'  => 'primary_navigation',
-        'menu_class'      => 'nav flex flex-row lg:flex-column flex-wrap lg:flex-nowrap max-w-screen-3xl mx-auto',
+        'menu_class'      => 'nav flex flex-row lg:flex-column flex-wrap lg:flex-nowrap max-w-screen-3xl 3xl:border-x-3 border-black mx-auto',
         'echo'            => false,
         'add_li_class'    => 'vigia-menu-item border-black'
       ]) ?>
     </nav>
-  <?php endif; ?>
-    <div class="w-full border-black border-b-3">
-        <a href="<?php echo get_permalink( wc_get_page_id( 'checkout' ) ) ?>" class="vigia-simple-header group flex items-center justify-center max-w-screen-3xl //bs-todo3xl:border-x-3 mx-auto border-black text-base lg:text-lg p-2.5 text-center relative block transition-color duration-medium hover:bg-black hover:text-white" >
+  <?php endif;
+
+    $cart = WC()->cart;
+    $totals = $cart->get_totals()['total'];
+
+  ?>
+    <div class="w-full border-black border-b-3 order-1">
+        <a href="<?php echo get_permalink( wc_get_page_id( 'checkout' ) ) ?>" class="vigia-simple-header group flex items-center justify-center max-w-screen-3xl 3xl:border-x-3 mx-auto border-black text-base lg:text-lg p-2.5 text-center relative block transition-color duration-medium hover:bg-black hover:text-white bg-white" >
             <span class="vigia-after-arrow vigia-after-arrow-right vigia-after-arrow-hover after:ml-1 after:translate-y-0.5" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() .  __( ', Kasse', 'vigia' ) ?></span>
         </a>
     </div>
@@ -57,6 +61,7 @@ do_action( 'woocommerce_before_main_content' );
 ?>
 
 <main id="main" class="main">
+    <?php echo WC()->cart->get_cart_total() ?>
     <div class="vigia-content vigia-content-<?php echo get_post_type() ?>">
     <!-- <header class="woocommerce-products-header">
         < ?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
@@ -121,7 +126,7 @@ do_action( 'woocommerce_before_main_content' );
 
     ?>
 
-    <div class="vigia-inner">
+    <div class="vigia-inner h-auto min-h-0">
     <?php echo $post->post_content; ?>
     </div>
 
@@ -144,4 +149,9 @@ do_action( 'woocommerce_before_main_content' );
     // get_footer( 'shop' );
     ?>
     </div>
+
+    <div class="w-full border-black border-y-3 text-center p-2.5 -mt-5">
+    <?php _e('Zeitschrift für Technologie und Gesellschaft', 'vigia') ?>
+    </div>
+
 </main>

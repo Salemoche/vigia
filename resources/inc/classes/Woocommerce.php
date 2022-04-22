@@ -92,7 +92,6 @@ class Woocommerce {
                 if ( ! is_object( $product ) ) {
                     global $product;
                 }
-
                 echo '<div class="p-5 text-center">' . $product->get_short_description() . '</div>';
             },
             15
@@ -153,7 +152,7 @@ class Woocommerce {
         ob_start();
 
         ?>
-        <span class="cart-customlocation after:content-['→'] after:relative after:ml-1" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() ?><span><?php echo __( ', Kasse', 'vigia' ) ?></span>
+        <span class="cart-customlocation after:content-['→'] after:relative after:ml-1" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() ?><span><?php echo __( ', Kasse', 'vigia' ) ?> Coming from the bla</span>
 
         <?php
         $fragments['span.cart-customlocation'] = ob_get_clean();

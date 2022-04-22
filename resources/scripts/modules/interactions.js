@@ -57,16 +57,14 @@ export const interactions = () => {
   }
 
   let scrollDist;
+  const menu = document.querySelector('.vigia-header:not(.vigia-header-front)');
 
-  function menuScroll () {
-
-    const menu = document.querySelector('.vigia-header');
-
-    if (window.innerWidth < 1024 ) return
+  function menuScroll (e) {
 
     window.addEventListener( 'wheel', e => {
-
       const scrollingDown = e.deltaY > 0;
+
+      if (window.vigia.deviceSize != 'desktop') return menu.style.top = '0px';
 
       if ( scrollingDown ) {
         menu.style.top = '-100%';

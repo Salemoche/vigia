@@ -350,12 +350,12 @@ a.wc-forward {
 
   .product-name {
     @apply
-      w-3/4;
+      w-1/2;
   }
 
   .product-total {
     @apply
-      w-1/4
+      w-1/2
       text-right;
   }
 

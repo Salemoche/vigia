@@ -19,6 +19,8 @@ the readme will list any important changes.
   @include('sections.navigation.main-navigation')
 @endsection
 
+blade test
+
 @section('content')
   @php (do_action('get_header', 'shop')) @endphp
   <x-headers.shop-header/>

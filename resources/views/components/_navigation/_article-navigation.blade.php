@@ -5,7 +5,7 @@
     @php ( $magazine_name = $term->name )
   @endif
 @endforeach --}}
-<header class="banner vigia-header top-0 lg:top-unset 3xl:border-y-3 border-black">
+<header class="banner vigia-header top-0 lg:top-unset //bs-todo3xl:border-y-3 border-black">
   {{-- <a class="brand" href="{{ home_url('/') }}">
     {!! $siteName !!}
   </a> --}}
@@ -14,7 +14,7 @@
     <nav class="nav-primary vigia-navigation mx-auto max-w-screen-3xl lg:border-b-3 lg:border-t-0 w-full  //bs-todo3xl:border-x-3 3xl:border-b-0 border-black" aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
       {!! wp_nav_menu([
         'theme_location'  => 'primary_navigation',
-        'menu_class'      => 'nav flex flex-row lg:flex-column flex-wrap lg:flex-nowrap max-w-screen-3xl mx-auto',
+        'menu_class'      => 'nav flex flex-row lg:flex-column flex-wrap lg:flex-nowrap max-w-screen-3xl mx-auto 3xl:border-l-3 border-black',
         'echo'            => false,
         'add_li_class'    => 'vigia-menu-item border-black'
       ]) !!}
