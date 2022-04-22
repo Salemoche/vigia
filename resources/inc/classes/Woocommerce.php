@@ -152,7 +152,7 @@ class Woocommerce {
         ob_start();
 
         ?>
-        <span class="cart-customlocation after:content-['→'] after:relative after:ml-1" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() ?><span><?php echo __( ', Kasse', 'vigia' ) ?> Coming from the bla</span>
+        <span class="cart-customlocation vigia-after-arrow vigia-after-arrow-right vigia-after-arrow-hover after:ml-1 after:translate-y-0.5" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() ?><span><?php echo __( ', Kasse', 'vigia' ) ?></span>
 
         <?php
         $fragments['span.cart-customlocation'] = ob_get_clean();
