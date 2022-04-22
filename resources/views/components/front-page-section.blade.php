@@ -10,6 +10,6 @@
 >
   <a class="vigia-magazine-link flex items-center justify-center w-full h-full" href="{{ get_the_permalink($magazine->ID )}}">
     {{-- <x-image-slider :images="get_field( 'images', $magazine->ID )" /> --}}
-      <h2 class="text-center text-2xl lg:text3xl text-white">{{ get_the_title( $magazine->ID) }}</h2>
+      <h2 class="text-center text-2xl 3xl:text-3xl text-white">{{ get_the_title( $magazine->ID) }}</h2>
   </a>
 </div>

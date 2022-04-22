@@ -7,7 +7,8 @@ module.exports = {
     'lg:grid-cols-2',
     'lg:grid-cols-3',
     'lg:grid-cols-4',
-    'min-h-0'
+    'min-h-0',
+
   ],
   theme: {
     container: {
@@ -23,7 +24,8 @@ module.exports = {
       'base2': ['1.52rem', { lineHeight: '1.9rem' }], // korrektur
       lg: ['2.25rem', { lineHeight: '2.5rem' }],  // 36px
       xl: ['4.5rem', { lineHeight: '4.75rem' }],  // 72px
-      '2xl': ['12.5rem', { lineHeight: '12.5rem' }],  // 100px
+      '2xl': ['16vw', { lineHeight: '16vw' }],  // 100px
+      '3xl': ['25rem', { lineHeight: '25rem' }],  // 200px
       '3xl': ['25rem', { lineHeight: '25rem' }],  // 200px
     },
     extend: {

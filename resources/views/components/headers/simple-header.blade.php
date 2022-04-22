@@ -1,6 +1,6 @@
 @props([ 'url' => get_permalink( wc_get_page_id( 'checkout' ) ) ])
 
-<div class="w-full border-black border-b-3">
+<div class="w-full border-black border-b-3 order-1 lg:order-2">
   <a
     href="{{ $url }}"
     {{ $attributes->merge(['class' =>
@@ -24,8 +24,7 @@
       hover:bg-black
       hover:text-white
       3xl:border-x-3
-      bg-white
-      order-1'
+      bg-white'
     ])}}
   >
     {{ $slot }}

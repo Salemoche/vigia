@@ -11,6 +11,7 @@ export const automatic = () => {
     windowSize();
     addMenuClasses();
     articleImageSizing();
+    spacing();
   }
 
   function windowSize () {
@@ -58,12 +59,14 @@ export const automatic = () => {
     const isZeitschriften = window.location.href.includes('zeitschriften');
     const isArticle = document.querySelector('body').classList.contains('single-post');
     const isProduct = window.location.href.includes('produkt');
+    const isCart = document.querySelector('body').classList.contains('page-id-8');
+    const isCheckout = document.querySelector('body').classList.contains('page-id-9');
 
     if ( isZeitschriften || isArticle ) {
       document.querySelector('.menu-item-37').classList.add('current-menu-item');
     }
 
-    if ( isProduct ) {
+    if ( isProduct || isCart || isCheckout) {
       document.querySelector('.menu-item-41').classList.add('current-menu-item');
     }
 
@@ -98,5 +101,25 @@ export const automatic = () => {
   }
 
 
+  /**========================
+  *	Spacing
+  *========================*/
+  function spacing () {
+    const subheader = document.querySelector('.vigia-simple-header');
+    const menuItem = document.querySelector('.menu-item');
+    const content = document.querySelector('.vigia-content');
+    if ( !menuItem || !content) return
+
+    setTimeout(() => {
+
+      if ( window.vigia.deviceSize != 'desktop' ) {
+        const menuHeight = subheader ? subheader.offsetHeight + menuItem.offsetHeight : menuItem.offsetHeight;
+        content.style.paddingTop = menuHeight + 20 + 'px';
+      } else {
+        content.style.paddingTop = 0 + 'px';
+      }
+
+    }, 500);
+  }
 
 }
