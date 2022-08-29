@@ -35,7 +35,7 @@ defined( 'ABSPATH' ) || exit;
 
             //bs-todo3xl:border-x-33xl:border-b-0
             border-black
-            order-2 lg:order-1
+            //order-2 //lg:order-1
             "
         aria-label="{{ wp_get_nav_menu_name('primary_navigation') }}">
       <?php echo wp_nav_menu([
@@ -51,8 +51,8 @@ defined( 'ABSPATH' ) || exit;
     $totals = $cart->get_totals()['total'];
 
   ?>
-    <div class="w-full border-black border-b-3 order-1">
-        <a href="<?php echo get_permalink( wc_get_page_id( 'checkout' ) ) ?>" class="vigia-simple-header group flex items-center justify-center max-w-screen-3xl 3xl:border-x-3 mx-auto border-black text-base2 lg:text-lg p-2.5 text-center relative block transition-color duration-medium hover:bg-black hover:text-white bg-white" >
+    <div class="w-full border-black border-b-3 order-1 vigia-simple-header">
+        <a href="<?php echo get_permalink( wc_get_page_id( 'checkout' ) ) ?>" class="group flex items-center justify-center max-w-screen-3xl 3xl:border-x-3 mx-auto border-black text-base2 lg:text-lg p-2.5 text-center relative block transition-color duration-medium hover:bg-black hover:text-white bg-white" >
             <span class="cart-customlocation vigia-after-arrow vigia-after-arrow-right vigia-after-arrow-hover after:ml-1 after:translate-y-1 lg:after:translate-y-0.5" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() . __( ' CHF, Kasse', 'vigia' ) ?></span>
         </a>
     </div>

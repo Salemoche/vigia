@@ -166,7 +166,6 @@ class Woocommerce {
         $address_fields['first_name']['placeholder'] = 'Vorname *';
         $address_fields['last_name']['placeholder'] = 'Nachname *';
         $address_fields['address_1']['placeholder'] = 'Adresse *';
-        $address_fields['street']['placeholder'] = 'Strasse *';
         $address_fields['state']['placeholder'] = 'Kanton/Bundesland';
         $address_fields['postcode']['placeholder'] = 'Postleitzahl *';
         $address_fields['city']['placeholder'] = 'Ort *';

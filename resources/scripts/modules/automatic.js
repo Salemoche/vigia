@@ -76,7 +76,7 @@ export const automatic = () => {
 
       document.querySelector('#menu-header-menu').insertAdjacentHTML(
         'beforeend',
-        '<li id="menu-item-home" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41 vigia-menu-item border-black overflow-hidden"><a href="/">Vigia</a></li>'
+        '<li id="menu-item-home" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-41 vigia-menu-item border-black overflow-hidden"><a href="/">Home</a></li>'
       )
     }
   }
@@ -112,14 +112,19 @@ export const automatic = () => {
 
     setTimeout(() => {
 
+      const mainHeaderHeight = menuItem.offsetHeight;
+
       if ( window.vigia.deviceSize != 'desktop' ) {
         const menuHeight = subheader ? subheader.offsetHeight + menuItem.offsetHeight : menuItem.offsetHeight;
         content.style.paddingTop = menuHeight + 20 + 'px';
 
         if ( subheader ) {
           content.style.paddingTop = '71px';
-        } {
-          content.style.paddingTop = '116px';
+          subheader.classList.add('absolute');
+          subheader.style.top = mainHeaderHeight + 8 + 'px';
+        } else {
+          // content.style.paddingTop = '116px';
+          content.style.paddingTop = '26px';
         }
       } else {
         content.style.paddingTop = 0 + 'px';

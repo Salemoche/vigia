@@ -68,7 +68,8 @@
   p,
   span,
   em,
-  i {
+  i,
+  p a {
     @apply text-sm2 lg:text-base2;
   }
 
@@ -86,7 +87,7 @@
   }
 
   a {
-    @apply underline hover:text-gray-dark
+    @apply underline lg:hover:text-gray-dark
       /* after:content-['']
       after:bg-arrow-up-right
       after:w-4
@@ -114,7 +115,7 @@
 
   li.vigia-menu-item>a,
   .price>a {
-    @apply no-underline hover:text-white;
+    @apply no-underline lg:hover:text-white;
   }
 
   hr {
@@ -138,10 +139,12 @@
     @apply border-3 border-black outline-none rounded-none after:bg-white after:content-[''] after:rounded-full after:border-3 after:border-black after:w-5 after:h-5 after:absolute checked:after:bg-black;
 
     margin-top: 0.4rem;
+    visibility: hidden;
 
     &::after {
       margin-top: -0.1rem;
       margin-left: -0.6rem;
+      visibility: visible;
     }
   }
 }
@@ -198,8 +201,8 @@
     ;
 
     nav {
-      @apply
-        order-2 lg:order-1;
+      /* @apply
+        order-2 lg:order-1; */
     }
 
     &.active {
@@ -208,7 +211,7 @@
 
       .vigia-menu-item:not(.current-menu-item),
       .vigia-simple-header {
-        @apply opacity-100 pointer-events-auto;
+        @apply opacity-100 pointer-events-auto bg-white hover:bg-black;
       }
 
       .current-menu-item a {
@@ -217,6 +220,7 @@
     }
 
     .vigia-simple-header {
+      z-index: -1;
       @apply opacity-100 pointer-events-auto;
     }
   }
@@ -248,7 +252,7 @@
     lg:duration-medium
     lg:opacity-100
     lg:pointer-events-auto
-    lg:order-1
+    /* lg:order-1 */
 
     3xl:last:border-r-3
     hover:bg-black
@@ -262,7 +266,7 @@
       @apply bg-white lg:text-white pointer-events-auto order-1 opacity-100 lg:bg-black hover:text-black lg:hover:text-white lg:hover:bg-black;
 
       a {
-        @apply after:inline-block after:transition-transform after:duration-medium after:content-[''] after:bg-arrow-down after:w-7 after:h-7 after:mt-3 after:ml-1 after:bg-no-repeat lg:after:hidden pointer-events-none lg:after:ml-0;
+        @apply /*text-white*/ after:inline-block after:transition-transform after:duration-medium after:content-[''] after:bg-arrow-down after:w-7 after:h-7 after:mt-3 after:ml-1 after:bg-no-repeat lg:after:hidden pointer-events-none lg:after:ml-0;
       }
     }
   }
@@ -294,6 +298,8 @@
     after:hidden
     no-underline;
 
+    hyphens: auto;
+
     a {
       @apply hover:!text-white;
     }
@@ -302,8 +308,10 @@
   .vigia-before-arrow {
     @apply
     before:content-['']
-    before:w-5
-    before:h-5
+    before:w-3
+    before:h-3
+    lg:before:w-5
+    lg:before:h-5
     before:relative
     before:inline-block
     before:bg-no-repeat
@@ -325,13 +333,17 @@
   .vigia-before-arrow-up {
     @apply
     before:bg-arrow-up
-    group-hover:before:bg-arrow-up-negative;
+    group-hover:before:bg-arrow-up-negative
+    before:translate-y-[10%]
+    lg:before:translate-y-0;
   }
 
   .vigia-before-arrow-down {
     @apply
     before:bg-arrow-down
-    group-hover:before:bg-arrow-down-negative;
+    group-hover:before:bg-arrow-down-negative
+    before:translate-y-[10%]
+    lg:before:translate-y-0;
   }
 
   .vigia-before-arrow-up-right {
@@ -349,8 +361,10 @@
   .vigia-after-arrow {
     @apply
     after:content-['']
-    after:w-5
-    after:h-5
+    after:w-3
+    after:h-3
+    lg:after:w-5
+    lg:after:h-5
     after:relative
     after:inline-block
     after:bg-no-repeat
@@ -372,13 +386,17 @@
   .vigia-after-arrow-up {
     @apply
       after:bg-arrow-up
-      group-hover:after:bg-arrow-up-negative;
+      group-hover:after:bg-arrow-up-negative
+      after:translate-y-[10%]
+      lg:after:translate-y-0;
   }
 
   .vigia-after-arrow-down {
     @apply
       after:bg-arrow-down
-      group-hover:after:bg-arrow-down-negative;
+      group-hover:after:bg-arrow-down-negative
+      after:translate-y-[10%]
+      lg:after:translate-y-0;
   }
 
   .vigia-after-arrow-up-right {
