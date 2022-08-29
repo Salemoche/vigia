@@ -50,6 +50,7 @@ class Woocommerce {
         // checkout
         add_filter( 'woocommerce_checkout_fields' , [$this, 'override_billing_checkout_fields'], 20, 1 );
 
+        add_filter( 'woocommerce_checkout_fields', [$this, 'custom_woocommerce_checkout_fields'] );
 
 
         $this->customize_content_product();
@@ -152,7 +153,7 @@ class Woocommerce {
         ob_start();
 
         ?>
-        <span class="cart-customlocation vigia-after-arrow vigia-after-arrow-right vigia-after-arrow-hover after:ml-1 after:translate-y-0.5" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() ?><span><?php echo __( ', Kasse', 'vigia' ) ?></span>
+        <span class="cart-customlocation vigia-after-arrow vigia-after-arrow-right vigia-after-arrow-hover after:ml-1 after:translate-y-1 lg:after:translate-y-0.5" ><span class="vigia-totals"><?php echo WC()->cart->get_cart_total() ?><span><?php echo __( ', Kasse', 'vigia' ) ?></span>
 
         <?php
         $fragments['span.cart-customlocation'] = ob_get_clean();
@@ -181,6 +182,34 @@ class Woocommerce {
     public function override_billing_checkout_fields( $fields ) {
         $fields['billing']['billing_phone']['placeholder'] = 'Telefon';
         $fields['billing']['billing_email']['placeholder'] = 'Email *';
+        return $fields;
+    }
+
+    // change order notes
+    public function custom_woocommerce_checkout_fields( $fields )
+    {
+        $recent_zeitschriften_string = '';
+        $index = 0;
+        $args = array(
+            'post_type' =>'zeitschrift',
+            'posts_per_page' => -1,
+            'order'   => 'DESC'
+        );
+        $recent_posts = wp_get_recent_posts($args, OBJECT);
+
+        foreach ($recent_posts as $recent_post) {
+            if ( $index <= 2) {
+                if ( $index > 0) {
+                    $recent_zeitschriften_string .= ', ' . $recent_post->post_title;
+                } else {
+                    $recent_zeitschriften_string .= $recent_post->post_title;
+                }
+            }
+            $index++;
+        }
+        $fields['order']['order_comments']['label'] = __('Für Abos: erste Ausgabe', 'vigia');
+        $fields['order']['order_comments']['placeholder'] = $recent_zeitschriften_string;
+
         return $fields;
     }
 }

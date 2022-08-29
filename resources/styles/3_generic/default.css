@@ -81,7 +81,8 @@
   }
 
   sup {
-    @apply text-xs lg:text-sm;
+    @apply !text-xs lg:!text-sm2 -translate-y-1;
+    vertical-align: unset !important;
   }
 
   a {
@@ -121,7 +122,7 @@
   }
 
   figcaption {
-    @apply text-gray-dark;
+    @apply text-gray-dark text-xs2 lg:text-sm;
   }
 
   /**
@@ -140,6 +141,7 @@
 
     &::after {
       margin-top: -0.1rem;
+      margin-left: -0.6rem;
     }
   }
 }
@@ -167,7 +169,7 @@
   }
 
   .vigia-inner {
-    @apply pt-0 lg:pt-10 mx-auto pb-5 w-full
+    @apply pt-5 lg:pt-10 mx-auto pb-5 w-full
       min-h-screen
       /* max-w-screen-3xl
       3xl:border-x-3

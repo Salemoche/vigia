@@ -7,7 +7,6 @@ export const automatic = () => {
 
 
   function startScripts () {
-    loading();
     windowSize();
     addMenuClasses();
     articleImageSizing();
@@ -32,23 +31,24 @@ export const automatic = () => {
   /**========================
   *	Loading
   *========================*/
-  function loading () {
-    const loading = document.querySelector('.vigia-loading');
-
-    if (!loading) return
+  // function loading () {
 
     window.addEventListener("load", function () {
       setTimeout(() => {
-        loading.style.pointerEvents = 'none';
-        loading.style.opacity = '0';
-      }, 300);
+        console.log('loading')
+        if (!document.querySelector('.vigia-loading')) return
+        document.querySelector('.vigia-loading').style.pointerEvents = 'none';
+        document.querySelector('.vigia-loading').style.opacity = '0';
+      }, 500);
     });
 
     setTimeout(() => {
-      loading.style.pointerEvents = 'none';
-      loading.style.opacity = '0';
+      console.log('loading')
+      if (!document.querySelector('.vigia-loading')) return
+      document.querySelector('.vigia-loading').style.pointerEvents = 'none';
+      document.querySelector('.vigia-loading').style.opacity = '0';
     }, 1000);
-  }
+  // }
 
 
   /**========================
@@ -115,6 +115,12 @@ export const automatic = () => {
       if ( window.vigia.deviceSize != 'desktop' ) {
         const menuHeight = subheader ? subheader.offsetHeight + menuItem.offsetHeight : menuItem.offsetHeight;
         content.style.paddingTop = menuHeight + 20 + 'px';
+
+        if ( subheader ) {
+          content.style.paddingTop = '71px';
+        } {
+          content.style.paddingTop = '116px';
+        }
       } else {
         content.style.paddingTop = 0 + 'px';
       }

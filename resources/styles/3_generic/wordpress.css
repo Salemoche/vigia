@@ -55,12 +55,12 @@
 
   .has-bs-medium-font-size,
   .has-bs-medium-font-size * {
-    @apply !text-sm lg:!text-base;
+    @apply !text-sm2 lg:!text-base;
   }
 
   .has-bs-large-font-size,
   .has-bs-large-font-size * {
-    @apply !text-base lg:!text-lg;
+    @apply !text-base2 lg:!text-lg;
   }
 
   .wp-block-separator {
@@ -76,5 +76,20 @@
 
       lg:!text-sm
     ;
+  }
+
+  .footnote_container_prepare {
+    @apply
+      !hidden;
+  }
+
+  .vigia-accordion {
+    > *:not(.vigia-accordion-button) {
+      @apply transition-all duration-long overflow-hidden;
+    }
+  }
+
+  .footnote_referrer {
+    @apply !text-xs lg:!text-sm;
   }
 /* } */

@@ -24,7 +24,16 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li <?php wc_product_class( 'border-r-3 border-b-3  border-black m-0 col-span-1', $product ); ?>>
+<li <?php wc_product_class( '
+    vigia-content-product
+    border-r-3
+    border-b-3
+    border-black
+    m-0
+    col-span-1
+    '
+    , $product ); ?>
+>
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

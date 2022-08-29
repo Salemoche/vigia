@@ -1,4 +1,4 @@
-<header class="banner vigia-header top-0 lg:top-unset //bs-todo3xl:border-y-3 border-black">
+<header class="banner vigia-header top-0 lg:top-unset //bs-todo3xl:border-y-3 border-t-3 border-black">
   {{-- <a class="brand" href="{{ home_url('/') }}">
     {!! $siteName !!}
   </a> --}}

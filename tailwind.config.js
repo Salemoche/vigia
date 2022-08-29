@@ -8,6 +8,7 @@ module.exports = {
     'lg:grid-cols-3',
     'lg:grid-cols-4',
     'min-h-0',
+    'lg:border-t-3',
 
   ],
   theme: {
@@ -24,7 +25,7 @@ module.exports = {
       'base2': ['1.52rem', { lineHeight: '1.9rem' }], // korrektur
       lg: ['2.25rem', { lineHeight: '2.5rem' }],  // 36px
       xl: ['4.5rem', { lineHeight: '4.75rem' }],  // 72px
-      '2xl': ['16vw', { lineHeight: '16vw' }],  // 100px
+      '2xl': ['16vw', { lineHeight: '16vw', letterSpacing: '-0.3vw' }],  // 100px
       '3xl': ['25rem', { lineHeight: '25rem' }],  // 200px
       '3xl': ['25rem', { lineHeight: '25rem' }],  // 200px
     },

@@ -73,8 +73,18 @@
     ;
 
   img {
-    @apply
-      -mb-2;
+    margin-bottom: -0.4rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .vigia-content-product {
+    &:last-of-type,
+    &:nth-last-of-type(2),
+    &:nth-last-of-type(3),
+    &:nth-last-of-type(4) {
+      border-bottom-width: 0;
+    }
   }
 }
 
@@ -340,6 +350,19 @@ a.wc-forward {
         @apply
           w-5;
       }
+    }
+  }
+
+  .woocommerce-additional-fields {
+    label,
+    textarea {
+      @apply
+        w-full;
+    }
+
+    textarea {
+      @apply
+        border-b-3 border-black;
     }
   }
 

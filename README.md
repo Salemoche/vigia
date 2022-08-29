@@ -149,4 +149,4 @@ Keep track of development and community news.
 
 - add woocommerce https://github.com/generoi/sage-woocommerce
 - place single-product.php and product-archive.php in a new /woocommerce folder
-# vigia
+# oos

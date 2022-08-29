@@ -42,15 +42,17 @@ export const interactions = () => {
     })
 
     const isMagazine = window.location.href.includes('/zeitschriften/');
-
-    if ( !isMagazine ) return
+    const isArticle = document.querySelector('body').classList.contains('single-post');
+    if ( !isMagazine && !isArticle ) return
 
     const magazineMenuItem = document.querySelector('#menu-item-37 a');
 
     magazineMenuItem.style.pointerEvents = 'all'
+    document.querySelector('#menu-item-37').style.pointerEvents = 'all'
 
     magazineMenuItem.addEventListener( 'click', (e) => {
       e.preventDefault();
+      if ( window.vigia.deviceSize !== 'desktop' ) return
 
       window.location = '/'
     })
@@ -64,7 +66,7 @@ export const interactions = () => {
     window.addEventListener( 'wheel', e => {
       const scrollingDown = e.deltaY > 0;
 
-      if (window.vigia.deviceSize != 'desktop') return menu.style.top = '0px';
+      if (window.vigia.deviceSize != 'desktop' || !menu ) return menu.style.top = '0px';
 
       if ( scrollingDown ) {
         menu.style.top = '-100%';
@@ -129,7 +131,8 @@ export const interactions = () => {
 
     accordions.forEach(accordion => {
 
-      const accordionContent = accordion.querySelector('p')
+      const accordionContent = accordion.querySelector('center') || accordion.querySelector('p');
+      console.log( accordionContent );
       const accordionButton = accordion.querySelector('.vigia-accordion-button');
       const lines = accordionContent.getClientRects().length
       accordionContent.style.maxHeight = window.innerWidth > 1024 ? 'calc(5 * 1.875rem' : 'calc(5 * 1.375rem';
