@@ -1,3 +1,4 @@
+
 @layer base {
 
   @font-face {
@@ -143,10 +144,15 @@
 
     &::after {
       margin-top: -0.1rem;
-      margin-left: -0.6rem;
+      /* margin-left: -0.6rem; */
       visibility: visible;
     }
   }
+}
+
+.browser-firefox input[type=radio],
+.browser-firefox input[type=checkbox] {
+    visibility: visible;
 }
 
 @layer components {

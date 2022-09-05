@@ -1,3 +1,4 @@
+import DeviceDetector from "device-detector-js";
 
 export const automatic = () => {
 
@@ -11,6 +12,7 @@ export const automatic = () => {
     addMenuClasses();
     articleImageSizing();
     spacing();
+    device();
   }
 
   function windowSize () {
@@ -25,6 +27,12 @@ export const automatic = () => {
         window.vigia.deviceSize = 'mobile';
         break;
     }
+  }
+
+  function device () {
+    const deviceDetector = new DeviceDetector();
+    const device = deviceDetector.parse(window.navigator.userAgent);
+    document.querySelector('body').classList.add(`browser-${device.client.name.toLowerCase().replace(' ', '-')}`);
   }
 
 
@@ -119,12 +127,12 @@ export const automatic = () => {
         content.style.paddingTop = menuHeight + 20 + 'px';
 
         if ( subheader ) {
-          content.style.paddingTop = '71px';
+          content.style.paddingTop = '116px';
           subheader.classList.add('absolute');
           subheader.style.top = mainHeaderHeight + 8 + 'px';
         } else {
           // content.style.paddingTop = '116px';
-          content.style.paddingTop = '26px';
+          content.style.paddingTop = '71px';
         }
       } else {
         content.style.paddingTop = 0 + 'px';

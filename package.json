@@ -20,6 +20,7 @@
     "@roots/sage": "5.5.0"
   },
   "dependencies": {
+    "device-detector-js": "^3.0.3",
     "swiper": "^8.0.7"
   }
 }
