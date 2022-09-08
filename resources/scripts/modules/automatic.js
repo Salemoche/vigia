@@ -55,7 +55,7 @@ export const automatic = () => {
       if (!document.querySelector('.vigia-loading')) return
       document.querySelector('.vigia-loading').style.pointerEvents = 'none';
       document.querySelector('.vigia-loading').style.opacity = '0';
-    }, 1000);
+    }, 3000);
   // }
 
 
