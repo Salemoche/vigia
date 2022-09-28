@@ -248,6 +248,7 @@
     order-2
     opacity-0
     pointer-events-none
+    order-none
 
     lg:basis-1/4
     lg:w-auto
@@ -269,7 +270,7 @@
     }
 
     &.current-menu-item {
-      @apply bg-white lg:text-white pointer-events-auto order-1 opacity-100 lg:bg-black hover:text-black lg:hover:text-white lg:hover:bg-black;
+      @apply bg-white lg:text-white pointer-events-auto order-1 lg:order-none opacity-100 lg:bg-black hover:text-black lg:hover:text-white lg:hover:bg-black;
 
       a {
         @apply /*text-white*/ after:inline-block after:transition-transform after:duration-medium after:content-[''] after:bg-arrow-down after:w-7 after:h-7 after:mt-3 after:ml-1 after:bg-no-repeat lg:after:hidden pointer-events-none lg:after:ml-0;
